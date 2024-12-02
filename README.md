@@ -1,50 +1,62 @@
-# Welcome to your Expo app 👋
+<p align='center'>
+  <img src='https://i.imgur.com/1NPDW5o.jpeg' alt='Vital - Vite Starter Template' width='600'/>
+</p>
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+<p align='center'>
+Speed <em>up</em> mobile & web app development with <a href="https://expofa.st">expofa.st</a>
+</p>
+<p align='center'>
+➡️ Live Demo for <a href="https://demo-mobile.expofa.st">mobile</a> and <a href="https://demo.expofa.st">web</a> ⬅️
+</p>
 
-## Get started
+<br>
 
-1. Install dependencies
+## Features
 
-   ```bash
-   npm install
-   ```
+@todo
 
-2. Start the app
+## Try it now!
 
-   ```bash
-    npx expo start
-   ```
+### GitHub Template
 
-In the output, you'll find options to open the app in a
+[Create a repo from this template on GitHub](https://github.com/jvidalv/expofa.st/generate).
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Clone to local
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+If you prefer to do it manually with the cleaner git history
 
 ```bash
-npm run reset-project
+npx degit jvidalv/expofa.st my-expofast-app
+cd my-expofast-app
+yarn # If you don't have yarn installed, run: npm install -g yarn
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Checklist
 
-## Learn more
+When you use this template, try to follow the checklist to update your info properly
 
-To learn more about developing your project with Expo, look at the following resources:
+- [ ] Rename `name` and `author` fields in `package.json`
+- [ ] Change the author name in `LICENSE`
+- [ ] Change the title in `index.html`
+- [ ] Change the favicon in `public`
+- [ ] Modify the manifest in `public`
+- [ ] Clean up the README's
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+And, enjoy :)
 
-## Join the community
+## Usage
 
-Join our community of developers creating universal apps.
+@todo 
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### Deploy on Vercel
+
+@todo
+
+### Issues
+
+@todo
+
+
+## Why
+
+@todo
