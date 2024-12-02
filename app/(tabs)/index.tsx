@@ -1,75 +1,72 @@
-import {Image, StyleSheet, Platform, Text} from 'react-native';
+import { Image, Platform, Text } from "react-native";
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { HelloWave } from "@/components/hello-wave";
+import ParallaxScrollView from "@/components/parallax-scroll-view";
+import { ThemedText } from "@/components/ui/atoms/themed-text";
+import { ThemedView } from "@/components/ui/atoms/themed-view";
 
-export default function HomeScreen() {
+export default function TabIndexScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerClassName="bg-[#A1CEDC] dark:bg-[#1D3D47]"
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+          source={require("@/assets/images/partial-react-logo.png")}
+          className="h-[178px] w-[290px] bottom-0 left-0 absolute"
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
+      }
+    >
+      <ThemedView className="flex-row gap-2 items-center">
+        <ThemedText variant="title">Welcome!</ThemedText>
         <HelloWave />
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Text className="mb-4 font-black text-5xl text-red-500">aaa</Text>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
+      <ThemedView className="gap-2 mb-2">
+        <ThemedText variant="subtitle">Step 1: Try it</ThemedText>
+        <ThemedText className="text-muted-foreground">
+          Edit{" "}
+          <ThemedText className="font-semibold">
+            app/(tabs)/index.tsx
+          </ThemedText>{" "}
+          to see changes. Press{" "}
+          <ThemedText className="font-semibold">
             {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
+              ios: "cmd + d",
+              android: "cmd + m",
+              web: "F12",
             })}
-          </ThemedText>{' '}
+          </ThemedText>{" "}
           to open developer tools.
         </ThemedText>
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
+      <ThemedView className="gap-2 mb-2">
+        <ThemedText variant="subtitle">Step 2: Explore</ThemedText>
+        <ThemedText className="text-muted-foreground">
+          Tap the Explore tab to learn more about what's included in this
+          starter app.
         </ThemedText>
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
+      <ThemedView className="gap-2 mb-2">
+        <ThemedText variant="subtitle">Step 3: Api</ThemedText>
+        <ThemedText className="text-muted-foreground">
+          Navigate to the API route to discover how you can leverage{" "}
+          <ThemedText className="font-semibold">elysia</ThemedText> and{" "}
+          <ThemedText className="font-semibold">expo-router</ThemedText> to have
+          your built-in backend.
+        </ThemedText>
+      </ThemedView>
+      <ThemedView className="gap-2 mb-2">
+        <ThemedText variant="subtitle">Step 4: Get a fresh start</ThemedText>
+        <ThemedText className="text-muted-foreground">
+          When you're ready, run{" "}
+          <ThemedText className="font-semibold">
+            npm run reset-project
+          </ThemedText>{" "}
+          to get a fresh <ThemedText className="font-semibold">app</ThemedText>{" "}
+          directory. This will move the current{" "}
+          <ThemedText className="font-semibold">app</ThemedText> to{" "}
+          <ThemedText className="font-semibold">app-example</ThemedText>.
         </ThemedText>
       </ThemedView>
     </ParallaxScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
