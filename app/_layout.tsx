@@ -14,9 +14,16 @@ import { useColorScheme } from "@/hooks/use-color-scheme";
 import { QueryClientProvider } from "@/components/providers";
 
 import "../global.css";
+import { View } from "react-native";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 void SplashScreen.preventAutoHideAsync();
+
+// Set the animation options. This is optional.
+SplashScreen.setOptions({
+  duration: 1000,
+  fade: true,
+});
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
