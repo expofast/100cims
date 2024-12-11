@@ -8,11 +8,11 @@ import { ThemedView } from "@/components/ui/atoms/themed-view";
 export default function TabIndexScreen() {
   return (
     <ParallaxScrollView
-      headerClassName="bg-[#A1CEDC] dark:bg-[#1D3D47]"
+      headerClassName="flex items-center justify-center bg-primary"
       headerImage={
         <Image
-          source={require("@/assets/images/partial-react-logo.png")}
-          className="h-[178px] w-[290px] bottom-0 left-0 absolute"
+          source={require("@/assets/images/icon.png")}
+          className="mt-12 h-[200px] w-[200px]"
         />
       }
     >
