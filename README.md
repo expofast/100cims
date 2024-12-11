@@ -1,15 +1,16 @@
 <p align='center'>
-  <img src='https://i.imgur.com/1NPDW5o.jpeg' alt='Vital - Vite Starter Template' width='600'/>
+  <img src="https://i.imgur.com/ZPxlx0P.png" alt="expofa.st logo"  />
 </p>
-
 <p align='center'>
-Speed <em>up</em> mobile & web app development with <a href="https://expofa.st">expofa.st</a>
+Speed <em>up</em> mobile & web app development x100.
 </p>
 <p align='center'>
 ➡️ Live Demo for <a href="https://demo-mobile.expofa.st">mobile</a> and <a href="https://demo.expofa.st">web</a> ⬅️
 </p>
 
-<br>
+# [expofa.st](https://expofa.st)
+
+@todo
 
 ## Features
 
