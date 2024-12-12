@@ -4,17 +4,13 @@ import { tv, type VariantProps } from "tailwind-variants";
 import clsx from "clsx";
 
 export const textVariants = tv({
-  base: "text-base text-foreground",
+  base: "text-foreground",
   variants: {
     variant: {
-      default: "",
       title: "text-4xl font-bold",
       subtitle: "text-xl font-bold",
-      link: "text-base font-medium text-primary",
+      link: "font-medium text-primary",
     },
-  },
-  defaultVariants: {
-    variant: "default",
   },
 });
 
@@ -24,5 +20,5 @@ export function ThemedText({
   className,
   ...props
 }: TextProps & TextVariantsProps) {
-  return <Text {...props} className={clsx(textVariants(props), className)} />;
+  return <Text className={clsx(textVariants(props), className)} {...props} />;
 }
