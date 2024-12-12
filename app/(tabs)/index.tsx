@@ -1,4 +1,4 @@
-import { Image, Platform, Text } from "react-native";
+import { Image, Platform, Text, View } from "react-native";
 
 import { HelloWave } from "@/components/hello-wave";
 import ParallaxScrollView from "@/components/parallax-scroll-view";
@@ -8,20 +8,20 @@ import { ThemedView } from "@/components/ui/atoms/themed-view";
 export default function TabIndexScreen() {
   return (
     <ParallaxScrollView
+      title="Welcome"
       headerClassName="flex items-center justify-center bg-primary"
       headerImage={
         <Image
           source={require("@/assets/images/icon.png")}
-          className="mt-12 h-[200px] w-[200px]"
+          className="mt-12 h-[180px] w-[180px]"
         />
       }
     >
-      <ThemedView className="flex-row gap-2 items-center">
-        <ThemedText variant="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
       <ThemedView className="gap-2 mb-2">
-        <ThemedText variant="subtitle">Step 1: Try it</ThemedText>
+        <View className="gap-2 flex-row items-center">
+          <ThemedText variant="subtitle">Step 1: Try it </ThemedText>
+          <HelloWave />
+        </View>
         <ThemedText className="text-muted-foreground">
           Edit{" "}
           <ThemedText className="font-semibold">

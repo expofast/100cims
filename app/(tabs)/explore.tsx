@@ -4,12 +4,12 @@ import { Collapsible } from "@/components/collapsible";
 import { ExternalLink } from "@/components/external-link";
 import ParallaxScrollView from "@/components/parallax-scroll-view";
 import { ThemedText } from "@/components/ui/atoms/themed-text";
-import { ThemedView } from "@/components/ui/atoms/themed-view";
 import { IconSymbol } from "@/components/ui/icon-symbol";
 
-export default function TabExplorecreen() {
+export default function ExploreScreen() {
   return (
     <ParallaxScrollView
+      title="Explore"
       headerClassName="bg-[#D0D0D0] dark:bg-[#353636]"
       headerImage={
         <View className="text-[#808080] bottom-[-90px] left-[-35px] absolute">
@@ -21,9 +21,6 @@ export default function TabExplorecreen() {
         </View>
       }
     >
-      <ThemedView>
-        <ThemedText variant="title">Explore</ThemedText>
-      </ThemedView>
       <ThemedText>
         This app includes example code to help you get started.
       </ThemedText>

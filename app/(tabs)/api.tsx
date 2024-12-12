@@ -128,21 +128,14 @@ const GetHelloBlock = () => {
 export default function ApiScreen() {
   return (
     <ParallaxScrollView
+      title="API"
       headerClassName="bg-primary"
       headerImage={
-        <View className="bottom-[-90px] left-[-35px] absolute">
-          <IconSymbol
-            size={310}
-            color="white"
-            className="opacity-50"
-            name="cloud"
-          />
+        <View className="bottom-[-90px] left-[-35px] absolute opacity-75">
+          <IconSymbol size={310} color="white" name="cloud" />
         </View>
       }
     >
-      <ThemedView>
-        <ThemedText variant="title">API</ThemedText>
-      </ThemedView>
       <ThemedText className="text-lg">
         List of resources using{" "}
         <ThemedText className="font-semibold">expo router</ThemedText> API
