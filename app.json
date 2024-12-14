@@ -1,12 +1,11 @@
 {
   "expo": {
-    "name": "expofast",
-    "slug": "jvidalv",
+    "name": "100cims",
+    "slug": "100cims",
     "version": "0.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "backgroundColor": "#eb144c",
-    "scheme": "expofast",
+    "scheme": "centcims",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
