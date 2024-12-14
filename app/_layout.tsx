@@ -14,7 +14,7 @@ import { useColorScheme } from "@/hooks/use-color-scheme";
 import { QueryClientProvider } from "@/components/providers";
 
 import "../global.css";
-import { View } from "react-native";
+import { useMountains } from "@/domains/mountains/mountains.api";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 void SplashScreen.preventAutoHideAsync();
@@ -25,31 +25,42 @@ SplashScreen.setOptions({
   fade: true,
 });
 
-export default function RootLayout() {
+function Content() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
 
+  const { data: mountains } = useMountains();
+
+  const ready = loaded && mountains;
+
   useEffect(() => {
-    if (loaded) {
+    if (ready) {
       void SplashScreen.hideAsync();
     }
-  }, [loaded]);
+  }, [ready]);
 
-  if (!loaded) {
+  if (!ready) {
     return null;
   }
 
   return (
+    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+      <Stack>
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="mountain/[slug]" options={{ headerShown: false }} />
+        <Stack.Screen name="+not-found" />
+      </Stack>
+      <StatusBar style="auto" />
+    </ThemeProvider>
+  );
+}
+
+export default function RootLayout() {
+  return (
     <QueryClientProvider>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
-        </Stack>
-        <StatusBar style="auto" />
-      </ThemeProvider>
+      <Content />
     </QueryClientProvider>
   );
 }

@@ -1,4 +1,10 @@
-import { PropsWithChildren, ReactElement, useEffect, useState } from "react";
+import {
+  Fragment,
+  PropsWithChildren,
+  ReactElement,
+  useEffect,
+  useState,
+} from "react";
 import Animated, {
   interpolate,
   SharedValue,
@@ -13,12 +19,14 @@ import { ThemedView } from "@/components/ui/atoms/themed-view";
 import { useBottomTabOverflow } from "@/components/ui/tab-bar-background";
 import clsx from "clsx";
 import { ThemedKeyboardAvoidingView, ThemedText } from "@/components/ui/atoms";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useColorScheme } from "@/hooks/use-color-scheme";
+import { IconSymbol } from "@/components/ui/icon-symbol";
+import { useRouter } from "expo-router";
 
-const HEADER_HEIGHT = 250;
-const DEFAULT_BLURRED_HEADER_CLASSNAME = "font-medium";
+const HEADER_HEIGHT = 300;
+const DEFAULT_BLURRED_HEADER_CLASSNAME = "font-medium text-lg";
 
 type Props = PropsWithChildren<{
   headerImage: ReactElement;
@@ -45,8 +53,7 @@ export default function ParallaxScrollView({
   };
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
   const scrollOffset = useScrollViewOffset(scrollRef);
-  const bottom = useBottomTabOverflow();
-  const showBlurredTopHeader = scrollPosition > 150;
+  const showBlurredTopHeader = scrollPosition > 200;
 
   return (
     <ThemedKeyboardAvoidingView>
@@ -55,19 +62,18 @@ export default function ParallaxScrollView({
           ref={scrollRef}
           onScroll={handleScroll}
           scrollEventThrottle={16}
-          scrollIndicatorInsets={{ bottom }}
-          contentContainerStyle={{ paddingBottom: bottom }}
         >
           <AnimatedHeaderBackground
             headerClassName={headerClassName}
             headerImage={headerImage}
             scrollOffset={scrollOffset}
           />
-          <HeaderTitle title={title} show={!showBlurredTopHeader} />
+          <HeaderTitleElement title={title} show={!showBlurredTopHeader} />
           <ThemedView className="relative h-full flex-1 p-8 gap-4 overflow-hidden">
             {children}
           </ThemedView>
         </Animated.ScrollView>
+        <HeaderTopElement show={!showBlurredTopHeader} />
         <BlurredTopHeader title={title} show={showBlurredTopHeader}>
           {blurredTopHeaderElement ? (
             blurredTopHeaderElement({
@@ -117,7 +123,7 @@ const AnimatedHeaderBackground = ({
 
   return (
     <Animated.View
-      className={clsx("h-[250px] overflow-hidden", headerClassName)}
+      className={clsx("h-[300px] overflow-hidden", headerClassName)}
       style={headerAnimatedStyle}
     >
       {headerImage}
@@ -125,14 +131,53 @@ const AnimatedHeaderBackground = ({
   );
 };
 
-const HeaderTitle = ({ title, show }: { title: string; show: boolean }) => {
+const HeaderTopElement = ({ show }: { show: boolean }) => {
+  const router = useRouter();
   const opacity = useSharedValue(1); // Start with opacity 0
 
   useEffect(() => {
     if (show) {
       opacity.value = withTiming(1, { duration: 200 });
     } else {
-      opacity.value = withTiming(0, { duration: 250 });
+      opacity.value = withTiming(0, { duration: 300 });
+    }
+  }, [opacity, show]);
+
+  const animatedStyle = useAnimatedStyle(() => ({
+    opacity: opacity.value,
+  }));
+
+  return (
+    <Animated.View style={animatedStyle} className="absolute top-16 px-8">
+      <TouchableOpacity
+        onPress={router.back}
+        className="items-center justify-center w-6 h-6 rounded-full overflow-hidden"
+      >
+        <BlurView
+          className="items-center justify-center"
+          style={StyleSheet.absoluteFill}
+        >
+          <IconSymbol size={16} color="white" name="chevron.left" />
+        </BlurView>
+      </TouchableOpacity>
+    </Animated.View>
+  );
+};
+
+const HeaderTitleElement = ({
+  title,
+  show,
+}: {
+  title: string;
+  show: boolean;
+}) => {
+  const opacity = useSharedValue(1); // Start with opacity 0
+
+  useEffect(() => {
+    if (show) {
+      opacity.value = withTiming(1, { duration: 200 });
+    } else {
+      opacity.value = withTiming(0, { duration: 300 });
     }
   }, [opacity, show]);
 
@@ -143,12 +188,13 @@ const HeaderTitle = ({ title, show }: { title: string; show: boolean }) => {
   return (
     <Animated.View
       style={animatedStyle}
-      className="absolute h-[250px] justify-end pb-4 px-8 w-full"
+      className="absolute h-[300px] justify-end items-start pb-4 px-8 w-full"
     >
       <LinearGradient
         colors={["transparent", "rgba(0,0,0,0.4)"]}
         style={StyleSheet.absoluteFill}
       />
+
       <ThemedText className="text-4xl text-white font-bold">{title}</ThemedText>
     </Animated.View>
   );
@@ -161,11 +207,12 @@ const BlurredTopHeader = ({
   title?: string;
   show: boolean;
 }>) => {
+  const router = useRouter();
   const opacity = useSharedValue(0); // Start with opacity 0
 
   useEffect(() => {
     if (show) {
-      opacity.value = withTiming(1, { duration: 250 });
+      opacity.value = withTiming(1, { duration: 300 });
     } else {
       opacity.value = withTiming(0, { duration: 200 });
     }
@@ -178,11 +225,17 @@ const BlurredTopHeader = ({
   return (
     <Animated.View
       style={animatedStyle}
-      className={"top-0 absolute flex-1 w-full h-28"}
+      className="top-0 absolute flex-1 w-full h-24"
     >
       <BlurView className="flex-1">
-        <View className="flex items-center justify-center mt-auto pb-3">
+        <View className="flex-row px-8 items-center justify-between mt-auto pb-2">
+          <TouchableOpacity onPress={router.back}>
+            <IconSymbol size={16} color="black" name="chevron.left" />
+          </TouchableOpacity>
           {children}
+          <TouchableOpacity>
+            <IconSymbol size={18} color="black" name="square.and.arrow.up" />
+          </TouchableOpacity>
         </View>
       </BlurView>
     </Animated.View>
