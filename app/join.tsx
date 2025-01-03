@@ -119,7 +119,7 @@ export default function JoinScreen() {
           </View>
         </View>
       </View>
-      <View className="absolute bottom-0 mx-6 w-full gap-2 pb-32">
+      <View className="absolute bottom-32 mx-6 w-full gap-2">
         <AppleAuthentication.AppleAuthenticationButton
           buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
           buttonStyle={
