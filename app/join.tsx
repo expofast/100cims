@@ -1,17 +1,18 @@
 import * as AppleAuthentication from "expo-apple-authentication";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
-import { TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View, Text } from "react-native";
 
 import { useAuth } from "@/components/providers/auth-provider";
 import { ThemedView, ThemedText, Button } from "@/components/ui/atoms";
 import { AvatarGroup } from "@/components/ui/molecules";
+import { getFullName } from "@/domains/user/user.utils";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import { api } from "@/lib";
 
-const data = [
+const users = [
   {
-    name: "Magda Vidal",
+    name: "Josep Vidal",
     imageUrl:
       "https://media.licdn.com/dms/image/v2/D4E03AQFpQWS35rdxNg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1729674280775?e=1740009600&v=beta&t=qMlgUxWbIHz2XlEZ24GhsDWz9oDFSTxXCjVjoyqnkG8",
   },
@@ -29,7 +30,6 @@ const data = [
   { name: "Mia Gonzalez", imageUrl: "https://picsum.photos/id/600/200" },
   { name: "James Taylor", imageUrl: "https://picsum.photos/id/650/200" },
   { name: "William Adams", imageUrl: "https://picsum.photos/id/700/200" },
-  { name: "Ava Brown", imageUrl: "https://picsum.photos/id/750/200" },
 ];
 
 const features = [
@@ -80,7 +80,7 @@ export default function JoinScreen() {
     <ThemedView className="flex-1 gap-6 px-6 pt-6">
       <View className="items-center">
         <View
-          className="items-center justify-center overflow-hidden rounded-full border-4 border-accent"
+          className="items-center justify-center overflow-hidden rounded-full border-4 border-primary"
           style={{ width: 150, height: 150 }}
         >
           <Image
@@ -92,14 +92,16 @@ export default function JoinScreen() {
       <View className="items-center justify-center">
         <ThemedText className="items-center justify-center text-4xl font-black">
           Join{" "}
-          <ThemedText className="font-black text-primary">100cims </ThemedText>
+          <ThemedText className="text-4xl font-black text-primary">
+            100cims{" "}
+          </ThemedText>
           today
         </ThemedText>
         <ThemedText className="items-center justify-center text-xl font-medium text-muted-foreground">
           and be part of a thriving community
         </ThemedText>
         <View className="mb-8 mt-3 flex-row items-center justify-center gap-2">
-          <AvatarGroup items={data} />
+          <AvatarGroup items={users} limit={users.length} />
         </View>
         <View className="mb-12">
           <ThemedText className="mb-2 text-left text-lg font-medium text-muted-foreground">
@@ -117,7 +119,7 @@ export default function JoinScreen() {
           </View>
         </View>
       </View>
-      <View className="mt-auto flex-1 justify-end pb-12">
+      <View className="absolute bottom-0 mx-6 w-full gap-2 pb-32">
         <AppleAuthentication.AppleAuthenticationButton
           buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
           buttonStyle={
@@ -125,9 +127,9 @@ export default function JoinScreen() {
               ? AppleAuthentication.AppleAuthenticationButtonStyle.WHITE
               : AppleAuthentication.AppleAuthenticationButtonStyle.BLACK
           }
-          cornerRadius={12}
+          cornerRadius={10}
           style={{
-            height: 44,
+            height: 46,
           }}
           onPress={async () => {
             try {
@@ -155,7 +157,7 @@ export default function JoinScreen() {
               }
 
               setAuthenticated(jwt);
-              router.dismissAll();
+              router.dismiss();
             } catch {
               // if (e.code === "ERR_REQUEST_CANCELED") {
               //   // handle that the user canceled the sign-in flow
@@ -165,10 +167,13 @@ export default function JoinScreen() {
             }
           }}
         />
-        <Button className="mt-2 rounded-xl bg-zinc-600">
+        <Button intent="outline">
+          <Text className="text-blue-500" style={{ fontSize: 18 }}>
+            G{"  "}
+          </Text>
           Sign in with Google
         </Button>
-        <TouchableOpacity className="py-8" onPress={() => router.back()}>
+        <TouchableOpacity className="mt-4" onPress={() => router.back()}>
           <ThemedText className="text-center text-muted-foreground underline">
             I will join later
           </ThemedText>
