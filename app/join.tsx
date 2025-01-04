@@ -6,7 +6,6 @@ import { TouchableOpacity, View, Text } from "react-native";
 import { useAuth } from "@/components/providers/auth-provider";
 import { ThemedView, ThemedText, Button } from "@/components/ui/atoms";
 import { AvatarGroup } from "@/components/ui/molecules";
-import { getFullName } from "@/domains/user/user.utils";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import { api } from "@/lib";
 
