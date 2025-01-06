@@ -1,6 +1,7 @@
 import * as AppleAuthentication from "expo-apple-authentication";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
+import { useColorScheme } from "nativewind";
 import { FormattedMessage } from "react-intl";
 import { TouchableOpacity, View, Text } from "react-native";
 import { twMerge } from "tailwind-merge";
@@ -8,7 +9,6 @@ import { twMerge } from "tailwind-merge";
 import { useAuth } from "@/components/providers/auth-provider";
 import { ThemedView, ThemedText, Button } from "@/components/ui/atoms";
 import { AvatarGroup } from "@/components/ui/molecules";
-import { useColorScheme } from "@/hooks/use-color-scheme";
 import { api } from "@/lib";
 import { isAndroid } from "@/lib/device";
 
@@ -36,7 +36,8 @@ const users = [
 
 export default function JoinScreen() {
   const { setAuthenticated } = useAuth();
-  const { isDark } = useColorScheme();
+  const { colorScheme } = useColorScheme();
+  const isDark = colorScheme === "dark";
   const router = useRouter();
 
   const features = [
