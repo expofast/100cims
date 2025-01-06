@@ -1,13 +1,16 @@
 import * as AppleAuthentication from "expo-apple-authentication";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
+import { FormattedMessage } from "react-intl";
 import { TouchableOpacity, View, Text } from "react-native";
+import { twMerge } from "tailwind-merge";
 
 import { useAuth } from "@/components/providers/auth-provider";
 import { ThemedView, ThemedText, Button } from "@/components/ui/atoms";
 import { AvatarGroup } from "@/components/ui/molecules";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import { api } from "@/lib";
+import { isAndroid } from "@/lib/device";
 
 const users = [
   {
@@ -31,52 +34,52 @@ const users = [
   { name: "William Adams", imageUrl: "https://picsum.photos/id/700/200" },
 ];
 
-const features = [
-  {
-    emoji: "📝",
-    text: (
-      <ThemedText>
-        The ability to{" "}
-        <ThemedText className="font-black tracking-tighter">
-          register your summits
-        </ThemedText>{" "}
-        and track your completed mountains.
-      </ThemedText>
-    ),
-  },
-  {
-    emoji: "🏆",
-    text: (
-      <ThemedText>
-        A{" "}
-        <ThemedText className="font-black tracking-tighter">
-          community ranking
-        </ThemedText>{" "}
-        where you can compete with other mountain lovers.
-      </ThemedText>
-    ),
-  },
-  {
-    emoji: "💪🏼",
-    text: (
-      <ThemedText>
-        A{" "}
-        <ThemedText className="font-black tracking-tighter">
-          profile with your feats
-        </ThemedText>{" "}
-        that you can share with the world.
-      </ThemedText>
-    ),
-  },
-];
-
 export default function JoinScreen() {
   const { setAuthenticated } = useAuth();
   const { isDark } = useColorScheme();
   const router = useRouter();
 
+  const features = [
+    {
+      emoji: "📝",
+      text: (
+        <ThemedText>
+          <FormattedMessage defaultMessage="The ability to" />{" "}
+          <ThemedText className="font-black tracking-tighter">
+            <FormattedMessage defaultMessage="register your summits" />
+          </ThemedText>{" "}
+          <FormattedMessage defaultMessage="and track the ones left." />
+        </ThemedText>
+      ),
+    },
+    {
+      emoji: "🏆",
+      text: (
+        <ThemedText>
+          <ThemedText className="font-black tracking-tighter">
+            <FormattedMessage defaultMessage="A community ranking" />
+          </ThemedText>{" "}
+          <FormattedMessage defaultMessage="where you can compete with other mountain lovers." />
+        </ThemedText>
+      ),
+    },
+    {
+      emoji: "💪🏼",
+      text: (
+        <ThemedText>
+          <ThemedText className="font-black tracking-tighter">
+            <FormattedMessage defaultMessage="A profile with your feats" />
+          </ThemedText>{" "}
+          <FormattedMessage defaultMessage="that you can share with the world." />
+        </ThemedText>
+      ),
+    },
+  ];
+
   return (
-    <ThemedView className="flex-1 gap-6 px-6 pt-6">
+    <ThemedView
+      className={twMerge("flex-1 gap-6 px-6 pt-6", isAndroid && "pt-24")}
+    >
       <View className="items-center">
         <View
           className="items-center justify-center overflow-hidden rounded-full border-4 border-primary"
@@ -90,21 +93,21 @@ export default function JoinScreen() {
       </View>
       <View className="items-center justify-center">
         <ThemedText className="items-center justify-center text-4xl font-black">
-          Join{" "}
+          <FormattedMessage defaultMessage="Join" />{" "}
           <ThemedText className="text-4xl font-black text-primary">
             100cims{" "}
           </ThemedText>
-          today
+          <FormattedMessage defaultMessage="today" />
         </ThemedText>
         <ThemedText className="items-center justify-center text-xl font-medium text-muted-foreground">
-          and be part of a thriving community
+          <FormattedMessage defaultMessage="and be part of a thriving community" />
         </ThemedText>
         <View className="mb-8 mt-3 flex-row items-center justify-center gap-2">
           <AvatarGroup items={users} limit={users.length} />
         </View>
         <View className="mb-12">
           <ThemedText className="mb-2 text-left text-lg font-medium text-muted-foreground">
-            Also unblock...
+            <FormattedMessage defaultMessage="Also unblock..." />
           </ThemedText>
           <View className="w-[350px] gap-2">
             {features.map(({ emoji, text }, index) => (
@@ -170,11 +173,11 @@ export default function JoinScreen() {
           <Text className="text-blue-500" style={{ fontSize: 18 }}>
             G{"  "}
           </Text>
-          Sign in with Google
+          <FormattedMessage defaultMessage="Sign in with Google" />
         </Button>
         <TouchableOpacity className="mt-4" onPress={() => router.back()}>
           <ThemedText className="text-center text-muted-foreground underline">
-            I will join later
+            <FormattedMessage defaultMessage="I'll join later" />
           </ThemedText>
         </TouchableOpacity>
       </View>

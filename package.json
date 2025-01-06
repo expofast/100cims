@@ -1,7 +1,7 @@
 {
   "name": "expofast",
   "main": "expo-router/entry",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "npx expo start --clear",
@@ -10,7 +10,11 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "translations:extract": "formatjs extract './{components,app}/**/*.ts*' --ignore='**/*.d.ts' --out-file translations/raw-en.json",
+    "translations:generate": "formatjs compile './translations/raw-en.json' --out-file translations/en.json",
+    "translations": "yarn translations:extract && yarn translations:generate",
+    "db": "npx drizzle-kit push"
   },
   "jest": {
     "preset": "jest-expo"
@@ -38,6 +42,7 @@
     "expo-blur": "~14.0.1",
     "expo-constants": "17.0.3",
     "expo-dev-client": "~5.0.8",
+    "expo-device": "~7.0.1",
     "expo-font": "13.0.1",
     "expo-haptics": "14.0.0",
     "expo-image": "~2.0.3",
@@ -58,7 +63,9 @@
     "postgres": "^3.4.5",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-intl": "^7.1.0",
     "react-native": "0.76.3",
+    "react-native-device-info": "^14.0.2",
     "react-native-gesture-handler": "2.20.2",
     "react-native-reanimated": "3.16.4",
     "react-native-safe-area-context": "4.12.0",
@@ -73,11 +80,14 @@
   "devDependencies": {
     "@babel/core": "7.26.0",
     "@babel/plugin-transform-class-static-block": "7.26.0",
+    "@formatjs/cli": "^6.3.15",
     "@types/react": "18.3.14",
+    "babel-plugin-formatjs": "^10.5.30",
     "drizzle-kit": "^0.30.0",
     "eslint": "^8.57.0",
     "eslint-config-expo": "~8.0.1",
     "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-formatjs": "^5.2.9",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-prettier": "5.2.1",
     "eslint-plugin-react-hooks": "5.1.0",
