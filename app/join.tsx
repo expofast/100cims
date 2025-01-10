@@ -13,7 +13,7 @@ import { useAuth } from "@/components/providers/auth-provider";
 import { ThemedView, ThemedText, Button } from "@/components/ui/atoms";
 import { AvatarGroup } from "@/components/ui/molecules";
 import { api } from "@/lib";
-import { isAndroid } from "@/lib/device";
+import { isAndroid, isIOS } from "@/lib/device";
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -38,6 +38,64 @@ const users = [
   { name: "James Taylor", imageUrl: "https://picsum.photos/id/650/200" },
   { name: "William Adams", imageUrl: "https://picsum.photos/id/700/200" },
 ];
+
+const AppleSignIn = () => {
+  const { setAuthenticated } = useAuth();
+  const { colorScheme } = useColorScheme();
+  const router = useRouter();
+
+  const isDark = colorScheme === "dark";
+
+  return (
+    <AppleAuthentication.AppleAuthenticationButton
+      buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
+      buttonStyle={
+        isDark
+          ? AppleAuthentication.AppleAuthenticationButtonStyle.WHITE
+          : AppleAuthentication.AppleAuthenticationButtonStyle.BLACK
+      }
+      cornerRadius={10}
+      style={{
+        height: 46,
+      }}
+      onPress={async () => {
+        try {
+          const credentials = await AppleAuthentication.signInAsync({
+            requestedScopes: [
+              AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
+              AppleAuthentication.AppleAuthenticationScope.EMAIL,
+            ],
+          });
+
+          if (!credentials.identityToken) {
+            return;
+          }
+
+          const response = await api.public.join.post({
+            provider: "apple",
+            identityToken: credentials.identityToken,
+            firstName: credentials?.fullName?.givenName || undefined,
+            lastName: credentials?.fullName?.familyName || undefined,
+          });
+
+          const jwt = response?.data?.message;
+          if (!jwt) {
+            return;
+          }
+
+          setAuthenticated(jwt);
+          router.dismiss();
+        } catch {
+          // if (e.code === "ERR_REQUEST_CANCELED") {
+          //   // handle that the user canceled the sign-in flow
+          // } else {
+          //   // handle other errors
+          // }
+        }
+      }}
+    />
+  );
+};
 
 const GoogleSignIn = () => {
   const router = useRouter();
@@ -96,9 +154,6 @@ const GoogleSignIn = () => {
 };
 
 export default function JoinScreen() {
-  const { setAuthenticated } = useAuth();
-  const { colorScheme } = useColorScheme();
-  const isDark = colorScheme === "dark";
   const router = useRouter();
 
   const features = [
@@ -140,7 +195,7 @@ export default function JoinScreen() {
 
   return (
     <ThemedView
-      className={twMerge("flex-1 gap-6 px-6 pt-6", isAndroid && "pt-24")}
+      className={twMerge("flex-1 gap-6 px-4 pt-6", isAndroid && "pt-24")}
     >
       <View className="items-center">
         <View
@@ -154,14 +209,14 @@ export default function JoinScreen() {
         </View>
       </View>
       <View className="items-center justify-center">
-        <ThemedText className="items-center justify-center text-4xl font-black">
+        <ThemedText className="items-center justify-center text-center text-4xl font-black">
           <FormattedMessage defaultMessage="Join" />{" "}
           <ThemedText className="text-4xl font-black text-primary">
             100cims{" "}
           </ThemedText>
           <FormattedMessage defaultMessage="today" />
         </ThemedText>
-        <ThemedText className="items-center justify-center text-xl font-medium text-muted-foreground">
+        <ThemedText className="items-center justify-center text-center text-xl font-medium text-muted-foreground">
           <FormattedMessage defaultMessage="and be part of a thriving community" />
         </ThemedText>
         <View className="mb-8 mt-3 flex-row items-center justify-center gap-2">
@@ -184,53 +239,7 @@ export default function JoinScreen() {
         </View>
       </View>
       <View className="absolute bottom-32 mx-6 w-full gap-2">
-        <AppleAuthentication.AppleAuthenticationButton
-          buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
-          buttonStyle={
-            isDark
-              ? AppleAuthentication.AppleAuthenticationButtonStyle.WHITE
-              : AppleAuthentication.AppleAuthenticationButtonStyle.BLACK
-          }
-          cornerRadius={10}
-          style={{
-            height: 46,
-          }}
-          onPress={async () => {
-            try {
-              const credentials = await AppleAuthentication.signInAsync({
-                requestedScopes: [
-                  AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
-                  AppleAuthentication.AppleAuthenticationScope.EMAIL,
-                ],
-              });
-
-              if (!credentials.identityToken) {
-                return;
-              }
-
-              const response = await api.public.join.post({
-                provider: "apple",
-                identityToken: credentials.identityToken,
-                firstName: credentials?.fullName?.givenName || undefined,
-                lastName: credentials?.fullName?.familyName || undefined,
-              });
-
-              const jwt = response?.data?.message;
-              if (!jwt) {
-                return;
-              }
-
-              setAuthenticated(jwt);
-              router.dismiss();
-            } catch {
-              // if (e.code === "ERR_REQUEST_CANCELED") {
-              //   // handle that the user canceled the sign-in flow
-              // } else {
-              //   // handle other errors
-              // }
-            }
-          }}
-        />
+        {isIOS && <AppleSignIn />}
         <GoogleSignIn />
         <TouchableOpacity className="mt-4" onPress={() => router.back()}>
           <ThemedText className="text-center text-muted-foreground underline">
