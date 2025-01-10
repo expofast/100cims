@@ -7,14 +7,16 @@
     "start": "npx expo start --clear",
     "start:prod": "npx expo start --no-dev --minify",
     "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
     "lint": "expo lint",
     "translations:extract": "formatjs extract './{components,app}/**/*.ts*' --ignore='**/*.d.ts' --out-file translations/raw-en.json",
     "translations:generate": "formatjs compile './translations/raw-en.json' --out-file translations/en.json",
     "translations": "yarn translations:extract && yarn translations:generate",
-    "db": "npx drizzle-kit push"
+    "db": "npx drizzle-kit push",
+    "build:development:ios": "npx expo run:ios",
+    "build:development:android": "npx expo run:android"
   },
   "jest": {
     "preset": "jest-expo"
@@ -28,7 +30,6 @@
     "@elysiajs/jwt": "1.1.0",
     "@expo/vector-icons": "14.0.4",
     "@react-native-async-storage/async-storage": "1.23.1",
-    "@react-native-google-signin/google-signin": "^13.1.0",
     "@react-navigation/native": "7.0.13",
     "@tanstack/react-query": "5.62.3",
     "clsx": "2.1.1",
@@ -39,8 +40,10 @@
     "expo": "52.0.11",
     "expo-apple-authentication": "~7.1.2",
     "expo-application": "~6.0.1",
+    "expo-auth-session": "~6.0.1",
     "expo-blur": "~14.0.1",
     "expo-constants": "17.0.3",
+    "expo-crypto": "~14.0.1",
     "expo-dev-client": "~5.0.8",
     "expo-device": "~7.0.1",
     "expo-font": "13.0.1",
