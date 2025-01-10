@@ -1,7 +1,10 @@
 import * as AppleAuthentication from "expo-apple-authentication";
+import * as Google from "expo-auth-session/providers/google";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
+import * as WebBrowser from "expo-web-browser";
 import { useColorScheme } from "nativewind";
+import { useEffect, useState } from "react";
 import { FormattedMessage } from "react-intl";
 import { TouchableOpacity, View, Text } from "react-native";
 import { twMerge } from "tailwind-merge";
@@ -11,6 +14,8 @@ import { ThemedView, ThemedText, Button } from "@/components/ui/atoms";
 import { AvatarGroup } from "@/components/ui/molecules";
 import { api } from "@/lib";
 import { isAndroid } from "@/lib/device";
+
+WebBrowser.maybeCompleteAuthSession();
 
 const users = [
   {
@@ -33,6 +38,62 @@ const users = [
   { name: "James Taylor", imageUrl: "https://picsum.photos/id/650/200" },
   { name: "William Adams", imageUrl: "https://picsum.photos/id/700/200" },
 ];
+
+const GoogleSignIn = () => {
+  const router = useRouter();
+  const [isAuthenticating, setIsAuthenticating] = useState(false);
+  const { setAuthenticated } = useAuth();
+  const [, response, promptAsync] = Google.useAuthRequest({
+    androidClientId:
+      "914334353075-ltka8iko6iajo65dool92ciq1a8vit8v.apps.googleusercontent.com",
+    iosClientId:
+      "914334353075-u32g2ki8cpmpns6kvo7lrmv27ecg3gfu.apps.googleusercontent.com",
+    webClientId:
+      "914334353075-h5gje08frd5b945k3e7vvpn6fifkioee.apps.googleusercontent.com",
+  });
+
+  useEffect(() => {
+    (async () => {
+      if (isAuthenticating) return;
+      try {
+        if (
+          response?.type === "success" &&
+          response?.authentication?.accessToken
+        ) {
+          setIsAuthenticating(true);
+          const jwtResponse = await api.public.join.post({
+            provider: "google",
+            identityToken: response?.authentication?.accessToken,
+          });
+
+          const jwt = jwtResponse?.data?.message;
+          if (!jwt) {
+            return;
+          }
+
+          setAuthenticated(jwt);
+          if (isAndroid) {
+            router.dismiss();
+            router.dismiss();
+          } else {
+            router.dismiss();
+          }
+        }
+      } catch {
+        setIsAuthenticating(false);
+      }
+    })();
+  }, [isAuthenticating, response, router, setAuthenticated]);
+
+  return (
+    <Button intent="outline" onPress={() => promptAsync()}>
+      <Text className="text-blue-500" style={{ fontSize: 18 }}>
+        G{"  "}
+      </Text>
+      <FormattedMessage defaultMessage="Sign in with Google" />
+    </Button>
+  );
+};
 
 export default function JoinScreen() {
   const { setAuthenticated } = useAuth();
@@ -150,8 +211,8 @@ export default function JoinScreen() {
               const response = await api.public.join.post({
                 provider: "apple",
                 identityToken: credentials.identityToken,
-                firstName: credentials?.fullName?.givenName || null,
-                lastName: credentials?.fullName?.familyName || null,
+                firstName: credentials?.fullName?.givenName || undefined,
+                lastName: credentials?.fullName?.familyName || undefined,
               });
 
               const jwt = response?.data?.message;
@@ -170,12 +231,7 @@ export default function JoinScreen() {
             }
           }}
         />
-        <Button intent="outline">
-          <Text className="text-blue-500" style={{ fontSize: 18 }}>
-            G{"  "}
-          </Text>
-          <FormattedMessage defaultMessage="Sign in with Google" />
-        </Button>
+        <GoogleSignIn />
         <TouchableOpacity className="mt-4" onPress={() => router.back()}>
           <ThemedText className="text-center text-muted-foreground underline">
             <FormattedMessage defaultMessage="I'll join later" />
