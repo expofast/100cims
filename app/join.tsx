@@ -56,7 +56,7 @@ const AppleSignIn = () => {
       }
       cornerRadius={10}
       style={{
-        height: 46,
+        height: 48,
       }}
       onPress={async () => {
         try {
