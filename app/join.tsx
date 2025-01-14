@@ -238,7 +238,7 @@ export default function JoinScreen() {
           </View>
         </View>
       </View>
-      <View className="absolute bottom-32 mx-6 w-full gap-2">
+      <View className="mx-auto w-full max-w-lg gap-2">
         {isIOS && <AppleSignIn />}
         <GoogleSignIn />
         <TouchableOpacity className="mt-4" onPress={() => router.back()}>
