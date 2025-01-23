@@ -1,12 +1,11 @@
 {
   "name": "100cims",
   "main": "expo-router/entry",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": true,
   "scripts": {
     "start": "npx expo start --clear",
     "start:prod": "npx expo start --no-dev --minify",
-    "reset-project": "node ./scripts/reset-project.js",
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
@@ -14,7 +13,8 @@
     "translations:extract": "formatjs extract './{components,app}/**/*.ts*' --ignore='**/*.d.ts' --out-file translations/raw-en.json",
     "translations:generate": "formatjs compile './translations/raw-en.json' --out-file translations/en.json",
     "translations": "yarn translations:extract && yarn translations:generate",
-    "db": "npx drizzle-kit push",
+    "db:push": "npx drizzle-kit push",
+    "db:local:up": "docker-compose up -d",
     "build:development:ios": "npx expo run:ios",
     "build:development:android": "npx expo run:android"
   },
