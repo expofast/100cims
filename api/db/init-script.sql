@@ -1,3 +1,5 @@
+CREATE EXTENSION IF NOT EXISTS unaccent;
+
 -- Insert the 100 cims Challenge
 INSERT INTO challenge (id, name, slug, web_url, country) VALUES  ('5f996363-7460-4bc8-817c-8dd633c0b504', '100 Cims', '100-cims', 'https://www.feec.cat/activitats/100-cims/', 'ESP');
 -- Insert the Aragon Challenge
