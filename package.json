@@ -61,6 +61,7 @@
     "expo-system-ui": "~4.0.7",
     "expo-updates": "~0.26.13",
     "expo-web-browser": "~14.0.2",
+    "googleapis": "^144.0.0",
     "nativewind": "4.1.23",
     "pg": "8.13.1",
     "postgres": "3.4.5",
