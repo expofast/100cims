@@ -1,7 +1,7 @@
 {
   "name": "100cims",
   "main": "expo-router/entry",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": true,
   "scripts": {
     "start": "npx expo start --clear",
@@ -68,7 +68,6 @@
     "postgres": "3.4.5",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-helmet-async": "^2.0.5",
     "react-intl": "7.1.0",
     "react-native": "0.76.6",
     "react-native-device-info": "14.0.2",
