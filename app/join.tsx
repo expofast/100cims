@@ -70,7 +70,7 @@ const AppleSignIn = () => {
           if (!credentials.identityToken) {
             return;
           }
-
+          console.log(credentials);
           const response = await api.public.join.post({
             provider: "apple",
             identityToken: credentials.identityToken,
