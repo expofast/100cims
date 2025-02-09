@@ -24,19 +24,55 @@ const users = [
       "https://media.licdn.com/dms/image/v2/D4E03AQFpQWS35rdxNg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1729674280775?e=1740009600&v=beta&t=qMlgUxWbIHz2XlEZ24GhsDWz9oDFSTxXCjVjoyqnkG8",
   },
   {
-    name: "Pepito Justo",
+    name: "Aine",
     imageUrl:
-      "https://media.licdn.com/dms/image/v2/D4D03AQH9Xw8ywHmkcw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1729705481301?e=1740009600&v=beta&t=Q_dUBQpNYRdKE7UVGD9gUpIzTVRdxptlDbgUGbVg5Fk",
+      "https://josepvidal-public-dev-bucket.s3.eu-west-3.amazonaws.com/100cims/user/avatar/84be5086-1ff7-4b2f-8a09-fc87ecfa1fb6.jpeg?date=1737923330650",
   },
-  { name: "Lucas Mora", imageUrl: "https://picsum.photos/id/300/200" },
-  { name: "Sophia Reyes", imageUrl: "https://picsum.photos/id/350/200" },
-  { name: "Emma Thompson", imageUrl: "https://picsum.photos/id/400/200" },
-  { name: "Olivia Martinez", imageUrl: "https://picsum.photos/id/450/200" },
-  { name: "Noah Johnson", imageUrl: "https://picsum.photos/id/500/200" },
-  { name: "Liam Carter", imageUrl: "https://picsum.photos/id/550/200" },
-  { name: "Mia Gonzalez", imageUrl: "https://picsum.photos/id/600/200" },
-  { name: "James Taylor", imageUrl: "https://picsum.photos/id/650/200" },
-  { name: "William Adams", imageUrl: "https://picsum.photos/id/700/200" },
+  {
+    name: "John Mc",
+    imageUrl:
+      "https://lh3.googleusercontent.com/a/ACg8ocIh8IBckLwJI6OTq8tdJ2LFS-bJvhF99zdXHqXB43KEpGVDhinh=s96-c",
+  },
+  {
+    name: "Lucas Mora",
+    imageUrl:
+      "https://lh3.googleusercontent.com/a/ACg8ocJ8j1Yc7UF_aOPQzN6xjwpRenCU-7DxdVT4wwO1nGpj72F8DM3K=s96-c",
+  },
+  {
+    name: "Sophia Reyes",
+    imageUrl:
+      "https://josepvidal-public-dev-bucket.s3.eu-west-3.amazonaws.com/100cims/user/avatar/cf0d127a-734e-4c25-868d-75f67c8fda58.jpeg?date=1738901350591",
+  },
+  {
+    name: "Emma Thompson",
+    imageUrl:
+      "https://josepvidal-public-dev-bucket.s3.eu-west-3.amazonaws.com/100cims/user/avatar/cd2ab9b8-0956-40fa-aa8e-fd8002ae5a32.jpeg?date=1738340984294",
+  },
+  {
+    name: "Olivia Martinez",
+    imageUrl:
+      "https://lh3.googleusercontent.com/a/ACg8ocJqLN7cnfKCPbe_FmL-RzZ7v1DEVO_D5wFnpRBCtp6LiwCmybUuVQ=s96-c",
+  },
+  {
+    name: "Noah Johnson",
+    imageUrl:
+      "https://lh3.googleusercontent.com/a/ACg8ocIWzHlVlK8j0ECC0en2NnjTIogBdaFYjpwQ56Xf26NzJWZQi77i=s96-c",
+  },
+  {
+    name: "Liam Carter",
+    imageUrl:
+      "https://lh3.googleusercontent.com/a/ACg8ocLfSF9q6epe7msrrzOFy_DWnmfeCwDWMr4a8PCbcXHTHRoMgg=s96-c",
+  },
+  {
+    name: "Mia Gonzalez",
+    imageUrl:
+      "https://josepvidal-public-dev-bucket.s3.eu-west-3.amazonaws.com/100cims/user/avatar/4e9d43b7-7291-4791-9ee6-6596be0919e7.jpeg?date=1738499191853",
+  },
+  {
+    name: "James Taylor",
+    imageUrl:
+      "https://josepvidal-public-dev-bucket.s3.eu-west-3.amazonaws.com/100cims/user/avatar/f3e27b86-5fd1-422f-ade2-00bd2ac67969.jpeg?date=1738597681135",
+  },
 ];
 
 const AppleSignIn = () => {
@@ -70,7 +106,7 @@ const AppleSignIn = () => {
           if (!credentials.identityToken) {
             return;
           }
-          console.log(credentials);
+
           const response = await api.public.join.post({
             provider: "apple",
             identityToken: credentials.identityToken,
