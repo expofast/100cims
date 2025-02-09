@@ -16,7 +16,8 @@
     "db:push": "npx drizzle-kit push",
     "db:local:up": "docker-compose up -d",
     "build:development:ios": "npx expo run:ios",
-    "build:development:android": "npx expo run:android"
+    "build:development:android": "npx expo run:android",
+    "update:production:all": "npx expo run:android"
   },
   "jest": {
     "preset": "jest-expo"
