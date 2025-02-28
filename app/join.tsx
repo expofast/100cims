@@ -3,6 +3,7 @@ import * as Google from "expo-auth-session/providers/google";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
+import { analytics } from "expofast-analytics";
 import { useColorScheme } from "nativewind";
 import { useEffect, useState } from "react";
 import { FormattedMessage } from "react-intl";
@@ -96,6 +97,8 @@ const AppleSignIn = () => {
       }}
       onPress={async () => {
         try {
+          analytics.action(`click-on-apple-sign-in`);
+
           const credentials = await AppleAuthentication.signInAsync({
             requestedScopes: [
               AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
@@ -121,12 +124,10 @@ const AppleSignIn = () => {
 
           setAuthenticated(jwt);
           router.dismiss();
-        } catch {
-          // if (e.code === "ERR_REQUEST_CANCELED") {
-          //   // handle that the user canceled the sign-in flow
-          // } else {
-          //   // handle other errors
-          // }
+        } catch (error) {
+          analytics.error(`Error on apple sign-in`, {
+            code: (error as { code: string })?.code,
+          });
         }
       }}
     />
@@ -174,13 +175,24 @@ const GoogleSignIn = () => {
           }
         }
       } catch {
+        analytics.error(`Error on Google sign-in`);
         setIsAuthenticating(false);
       }
     })();
   }, [isAuthenticating, response, router, setAuthenticated]);
 
   return (
-    <Button intent="outline" onPress={() => promptAsync()}>
+    <Button
+      intent="outline"
+      onPress={() => {
+        try {
+          analytics.action(`click-on-google-sign-in`);
+          void promptAsync();
+        } catch {
+          analytics.error(`Error on Google sign-in`);
+        }
+      }}
+    >
       <Text className="text-blue-500" style={{ fontSize: 18 }}>
         G{"  "}
       </Text>
