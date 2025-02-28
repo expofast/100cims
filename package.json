@@ -62,6 +62,7 @@
     "expo-system-ui": "~4.0.8",
     "expo-updates": "~0.26.17",
     "expo-web-browser": "~14.0.2",
+    "expofast-analytics": "^0.0.9",
     "googleapis": "^144.0.0",
     "nativewind": "4.1.23",
     "pg": "8.13.1",
