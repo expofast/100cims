@@ -1,7 +1,7 @@
 import * as AppleAuthentication from "expo-apple-authentication";
 import * as Google from "expo-auth-session/providers/google";
 import { Image } from "expo-image";
-import { useRouter } from "expo-router";
+import { Redirect, useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
 import { analytics } from "expofast-analytics";
 import { useColorScheme } from "nativewind";
@@ -202,6 +202,7 @@ const GoogleSignIn = () => {
 };
 
 export default function JoinScreen() {
+  const { isAuthenticated } = useAuth();
   const router = useRouter();
 
   const features = [
@@ -240,6 +241,10 @@ export default function JoinScreen() {
       ),
     },
   ];
+
+  if (isAuthenticated) {
+    return <Redirect href="/" />;
+  }
 
   return (
     <ThemedView
