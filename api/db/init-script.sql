@@ -672,3 +672,77 @@ WHERE slug IN (
                'monte-d-oro',
                'punta-d-oriente'
     );
+
+
+-- girones
+-- Insert mountains
+INSERT INTO mountain (slug, name, location, height, latitude, longitude, essential, image_url)
+VALUES
+    ('puigsou-rocacorba', 'Puigsou i Rocacorba', 'Canet d`Adri', 685, 42.0525, 2.6661, TRUE, 'https://i.imgur.com/h0E0iNG.png'),
+    ('castell-sant-miquel', 'Castell de Sant Miquel', 'Girona', 318, 42.0165, 2.8617, TRUE, 'https://i.imgur.com/EW7VvxN.png'),
+    ('puig-maimi-sant-cristofol', 'Puig d`en Maimí i Sant Cristòfol del Bosc', 'Llambilles', 223, 41.9083, 2.8547, TRUE, 'https://i.imgur.com/nuoV2tH.png'),
+    ('el-rocas-santa-afra', 'El Rocàs i Santa Afra', 'Sant Gregori', 307, 42.0244, 2.7489, TRUE, 'https://i.imgur.com/V8gE3Lk.png'),
+    ('sants-metges-congost', 'Sants Metges i El Congost', 'Sant Julià de Ramis', 156, 42.0456, 2.8583, TRUE, 'https://i.imgur.com/MZTWWnN.png'),
+    ('sant-roc-pas-historia', 'Sant Roc i El Pas de la Història', 'Vilablareix', 102, 41.9517, 2.7794, TRUE, 'https://i.imgur.com/Mcdslya.png');
+
+-- Insert challenge
+INSERT INTO challenge (id, name, slug, country)
+VALUES ('84be5086-1ff7-4b2f-8a09-fc87ecfa1fb1', 'Repte del Gironès', 'repte-del-girones', 'ESP');
+
+-- Associate mountains with the challenge
+INSERT INTO challenge_has_mountain (challenge_id, mountain_id)
+SELECT
+    (SELECT id FROM challenge WHERE slug = 'repte-del-girones') AS challenge_id,
+    id AS mountain_id
+FROM mountain
+WHERE slug IN (
+               'puigsou-rocacorba',
+               'castell-sant-miquel',
+               'puig-cadiretes',
+               'puig-maimi-sant-cristofol',
+               'montigalar',
+               'sant-grau',
+               'el-rocas-santa-afra',
+               'sants-metges-congost',
+               'els-angels',
+               'sant-roc-pas-historia'
+    );
+
+
+-- French alps
+-- Insert mountains
+INSERT INTO mountain (slug, name, location, height, latitude, longitude, essential, image_url)
+VALUES
+    ('mont-blanc', 'Mont Blanc', 'Haute-Savoie', 4808, 45.8326, 6.8652, TRUE, 'https://i.imgur.com/hRe3Lso.png'),
+    ('barre-des-ecrins', 'Barre des Écrins', 'Hautes-Alpes', 4102, 44.9264, 6.3618, TRUE, 'https://i.imgur.com/WjAmV9T.jpeg'),
+    ('la-meije', 'La Meije', 'Hautes-Alpes', 3983, 45.0036, 6.3014, TRUE, 'https://i.imgur.com/pMbpCki.jpeg'),
+    ('aiguille-verte', 'Aiguille Verte', 'Haute-Savoie', 4122, 45.9375, 6.9590, TRUE, 'https://i.imgur.com/ZJAmky2.png'),
+    ('dome-de-neige-des-ecrins', 'Dôme de Neige des Écrins', 'Hautes-Alpes', 4015, 44.9253, 6.3620, TRUE, 'https://i.imgur.com/96fyUtT.png'),
+    ('mont-pelvoux', 'Mont Pelvoux', 'Hautes-Alpes', 3946, 44.9183, 6.3667, TRUE, 'https://i.imgur.com/TiRDPTR.png'),
+    ('aiguille-dargentiere', 'Aiguille d’Argentière', 'Haute-Savoie', 3901, 45.9736, 7.0047, TRUE, 'https://i.imgur.com/HpkOsly.png'),
+    ('les-droites', 'Les Droites', 'Haute-Savoie', 4000, 45.9425, 7.0006, TRUE, 'https://i.imgur.com/lUgybwi.png'),
+    ('aiguille-du-dru', 'Aiguille du Dru', 'Haute-Savoie', 3754, 45.9422, 6.9547, TRUE, 'https://i.imgur.com/0OhPAzO.png'),
+    ('aiguille-de-bionnassay', 'Aiguille de Bionnassay', 'Haute-Savoie', 4052, 45.8325, 6.7947, TRUE, 'https://i.imgur.com/5yYPfan.png');
+
+-- Insert challenge
+INSERT INTO challenge (id, name, slug, country)
+VALUES ('b7e6a8f2-3c9d-4f2d-9e3e-5a7f8d9c6b19', 'French Alps', 'french-alps', 'FRA');
+
+-- Associate mountains with the challenge
+INSERT INTO challenge_has_mountain (challenge_id, mountain_id)
+SELECT
+    (SELECT id FROM challenge WHERE slug = 'french-alps') AS challenge_id,
+    id AS mountain_id
+FROM mountain
+WHERE slug IN (
+               'mont-blanc',
+               'barre-des-ecrins',
+               'la-meije',
+               'aiguille-verte',
+               'dome-de-neige-des-ecrins',
+               'mont-pelvoux',
+               'aiguille-dargentiere',
+               'les-droites',
+               'aiguille-du-dru',
+               'aiguille-de-bionnassay'
+    );
