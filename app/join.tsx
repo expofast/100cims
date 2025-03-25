@@ -21,8 +21,7 @@ WebBrowser.maybeCompleteAuthSession();
 const users = [
   {
     name: "Josep Vidal",
-    imageUrl:
-      "https://media.licdn.com/dms/image/v2/D4E03AQFpQWS35rdxNg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1729674280775?e=1740009600&v=beta&t=qMlgUxWbIHz2XlEZ24GhsDWz9oDFSTxXCjVjoyqnkG8",
+    imageUrl: "https://i.imgur.com/0oEmlkN.png",
   },
   {
     name: "Aine",
@@ -294,7 +293,13 @@ export default function JoinScreen() {
       <View className="mx-auto w-full max-w-lg gap-2">
         {isIOS && <AppleSignIn />}
         <GoogleSignIn />
-        <TouchableOpacity className="mt-4" onPress={() => router.back()}>
+        <TouchableOpacity
+          className="mt-4"
+          onPress={() => {
+            analytics.action("join-later");
+            router.back();
+          }}
+        >
           <ThemedText className="text-center text-muted-foreground underline">
             <FormattedMessage defaultMessage="I'll join later" />
           </ThemedText>
