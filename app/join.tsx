@@ -15,6 +15,7 @@ import { ThemedView, ThemedText, Button } from "@/components/ui/atoms";
 import { AvatarGroup } from "@/components/ui/molecules";
 import { api } from "@/lib";
 import { isAndroid, isIOS } from "@/lib/device";
+import { getLocale } from "@/lib/locale";
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -114,6 +115,7 @@ const AppleSignIn = () => {
             identityToken: credentials.identityToken,
             firstName: credentials?.fullName?.givenName || undefined,
             lastName: credentials?.fullName?.familyName || undefined,
+            locale: getLocale(),
           });
 
           const jwt = response?.data?.message;
@@ -158,6 +160,7 @@ const GoogleSignIn = () => {
           const jwtResponse = await api.public.join.post({
             provider: "google",
             identityToken: response?.authentication?.accessToken,
+            locale: getLocale(),
           });
 
           const jwt = jwtResponse?.data?.message;
