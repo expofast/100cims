@@ -14,7 +14,7 @@
     "translations:generate": "formatjs compile './translations/raw-en.json' --out-file translations/en.json",
     "translations": "yarn translations:extract && yarn translations:generate",
     "db:push": "EXPO_PUBLIC_API_URL=http://localhost:8081/ DATABASE_URL=postgresql://admin:admin@localhost:5432/my_local_db npx drizzle-kit push",
-    "db:push:prod": "EXPO_PUBLIC_API_URL=https://api.100cims.app/ DATABASE_URL=postgresql://postgres.tbuxzeasasuyzmyvttmw:1Ow3evKQkdTtkoCo@aws-0-eu-west-3.pooler.supabase.com:6543/postgres npx drizzle-kit push",
+    "db:push:prod": "npx drizzle-kit push",
     "db:local:up": "docker-compose up -d",
     "build:development:ios": "npx expo run:ios",
     "build:development:android": "npx expo run:android"
@@ -55,7 +55,7 @@
     "expo-linking": "~7.0.5",
     "expo-localization": "~16.0.1",
     "expo-network": "~7.0.5",
-    "expo-router": "~4.0.20",
+    "expo-router": "4.0.17",
     "expo-splash-screen": "~0.29.22",
     "expo-status-bar": "~2.0.1",
     "expo-store-review": "~8.0.1",
