@@ -1,13 +1,12 @@
 import * as AppleAuthentication from "expo-apple-authentication";
 import * as Google from "expo-auth-session/providers/google";
-import { Image } from "expo-image";
 import { Redirect, useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
 import { analytics } from "expofast-analytics";
 import { useColorScheme } from "nativewind";
 import { useEffect, useState } from "react";
 import { FormattedMessage } from "react-intl";
-import { TouchableOpacity, View, Text } from "react-native";
+import { TouchableOpacity, View, Text, Image } from "react-native";
 import { twMerge } from "tailwind-merge";
 
 import { useAuth } from "@/components/providers/auth-provider";
