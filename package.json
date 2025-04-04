@@ -37,7 +37,7 @@
     "dotenv": "16.4.7",
     "drizzle-orm": "0.39.2",
     "elysia": "1.2.23",
-    "expo": "~52.0.42",
+    "expo": "52.0.36",
     "expo-apple-authentication": "~7.1.3",
     "expo-application": "~6.0.2",
     "expo-auth-session": "~6.0.3",
