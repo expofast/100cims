@@ -251,13 +251,10 @@ export default function JoinScreen() {
       className={twMerge("flex-1 gap-6 px-4 pt-6", isAndroid && "pt-24")}
     >
       <View className="items-center">
-        <View
-          className="items-center justify-center overflow-hidden rounded-full border-4 border-primary"
-          style={{ width: 150, height: 150 }}
-        >
+        <View className="items-center justify-center overflow-hidden rounded-full border-4 border-primary">
           <Image
             source={require("@/assets/images/logo-small.png")}
-            style={{ width: 150, height: 150 }}
+            style={{ width: 120, height: 120 }}
           />
         </View>
       </View>
