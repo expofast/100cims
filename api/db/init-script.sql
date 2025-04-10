@@ -758,30 +758,30 @@ VALUES ('01961783-e221-7dbb-8c14-99a4377d3c9e', 'Camiño das Cimas', 'montes-gal
 -- Insert mountains
 INSERT INTO mountain (slug, name, location, height, latitude, longitude, essential, image_url)
 VALUES
-    ('pena-trevinca', 'Peña Trevinca', 'Valdeorras - Sierra del Eje', 2127, 42.2424, -6.7960, TRUE, 'https://i.imgur.com/Sjifivk.jpeg')
-    ('pena-negra', 'Peña Negra', 'Valdeorras - Sierra del Eje', 2121, 42.2495, -6.7942, TRUE, 'https://i.imgur.com/tEFWLqC.jpeg')
-    ('pena-surbia', 'Peña Surbia', 'Valdeorras - Sierra del Eje', 2116, 42.2556, -6.7758, TRUE, 'https://i.imgur.com/RP7GZoC.jpeg')
-    ('alto-ladeira-de-la-medias', 'Alto Ladeira de la Medias', 'Valdeorras - Sierra del Eje', 2066, 42.2536, -6.7892, FALSE, 'https://i.imgur.com/izo0t1P.jpeg')
-    ('cuina', 'Pico Cuíña', 'Sierra de Ancares', 1987, 42.8438, -6.8323, TRUE, 'https://i.imgur.com/Dmab8s7.jpeg')
-    ('mustallar', 'Mustallar', 'Los Ancares - Sierra de Ancares', 1935, 42.8227, -6.8419, TRUE, 'https://i.imgur.com/StkyASg.jpeg')
-    ('tres-bispos', 'Pico Tres Bispos', 'Los Ancares - Sierra de Ancares', 1795, 42.8013, -6.8690, TRUE, 'https://i.imgur.com/O6C0L2x.jpeg')
-    ('cabeza-de-manzaneda', 'Cabeza de Manzaneda', 'Tierra de Trives - Sierra de Queija', 1781, 42.2592, -7.2983, TRUE, 'https://i.imgur.com/Db3cKYL.jpeg')
-    ('seixo', 'Monte Seixo', 'Tierra de Trives - Sierra del Fial de las Corzas', 1705, 42.1943, -7.3577, FALSE, 'https://i.imgur.com/sRLN36r.jpeg')
-    ('formigueiros', 'Pico Formigueiros', 'Sierra del Caurel', 1639, 42.6056, -7.1000, TRUE, 'https://i.imgur.com/5ZzWYZk.jpeg')
-    ('piapaxaro', 'Pia Paxaro', 'Sierra del Caurel', 1619, 42.5792, -7.1473, TRUE, 'https://i.imgur.com/OtkgSmE.jpeg')
-    ('faro', 'Faro', 'Sierra del Caurel', 1615, 42.6312, -7.0469, FALSE, 'https://i.imgur.com/yuzgSF5.jpeg')
-    ('el-turrieiro', 'El Turrieiro', 'Valdeorras - Sierra de la Enciña de la Lastra', 1612, 42.5054, -7.0009, FALSE, 'https://i.imgur.com/qRUsKvv.jpeg')
-    ('a-nevosa', 'Pico Nevosa', 'La Baja Limia - Sierra de Gerez', 1539, 41.8275, -8.0409, FALSE, 'https://i.imgur.com/LilqQKV.jpeg')
-    ('alto-do-couto', 'Alto do Couto', 'Sierra del Caurel', 1308, 42.6143, -7.0967, TRUE, 'https://i.imgur.com/EgW6yhY.jpeg')
-    ('penagache', 'Alto do Penagache', 'Tierra de Celanova - Sierra de Laboreiro', 1225, 42.0904, -8.0945, TRUE, 'https://i.imgur.com/Y8o7D3j.jpeg')
-    ('monte-faro', 'Monte Faro', 'Chantada / El Deza - Sierra del Faro', 1187, 42.6214, -7.8976, TRUE, 'https://i.imgur.com/iGssNUc.png')
-    ('pico-de-los-cuatro-caballeros', 'Pico de los Cuatro Caballeros', 'Sierra del Caurel', 1131, 42.6058, -7.2803, FALSE, 'https://i.imgur.com/Nwz3UDJ.jpeg')
-    ('monte-coco', 'Alto do Coco', 'El Deza / Tabeirós - Tierra de Montes - Sierra del Candán', 969, 42.5629, -8.2499, FALSE, 'https://i.imgur.com/TFBZWJW.jpeg')
-    ('monte-farelo', 'Monte Farelo', 'El Deza / Ulloa - Sierra del Farelo', 951, 42.7538, -7.9513, TRUE, 'https://i.imgur.com/WHAJPL1.jpeg')
-    ('pena-grande', 'Monte Peña Grande', 'Meira', 935, 43.2217, -7.2506, FALSE, 'https://i.imgur.com/NI8Md8W.jpeg')
-    ('monseivane', 'Monte Monseivane', 'Tierra Llana - Sierra de la Carba', 929, 43.3893, -7.5736, FALSE, 'https://i.imgur.com/kksafKn.jpeg')
-    ('el-candan', 'El Candán', 'Sierra del Candán', 845, 42.5962, -8.2642, FALSE, 'https://i.imgur.com/nKhY6ws.jpeg')
-    ('monte-de-la-cova-de-la-serpe', 'Monte da Cova da Serpe', 'Friol - Serra Cova da Serpe', 836, 43.0878, -7.9120, FALSE, 'https://i.imgur.com/pJm46nL.jpeg')
+    ('pena-trevinca', 'Peña Trevinca', 'Valdeorras - Sierra del Eje', 2127, 42.2424, -6.7960, TRUE, 'https://i.imgur.com/Sjifivk.jpeg'),
+    ('pena-negra', 'Peña Negra', 'Valdeorras - Sierra del Eje', 2121, 42.2495, -6.7942, TRUE, 'https://i.imgur.com/tEFWLqC.jpeg'),
+    ('pena-surbia', 'Peña Surbia', 'Valdeorras - Sierra del Eje', 2116, 42.2556, -6.7758, TRUE, 'https://i.imgur.com/RP7GZoC.jpeg'),
+    ('alto-ladeira-de-la-medias', 'Alto Ladeira de la Medias', 'Valdeorras - Sierra del Eje', 2066, 42.2536, -6.7892, FALSE, 'https://i.imgur.com/izo0t1P.jpeg'),
+    ('cuina', 'Pico Cuíña', 'Sierra de Ancares', 1987, 42.8438, -6.8323, TRUE, 'https://i.imgur.com/Dmab8s7.jpeg'),
+    ('mustallar', 'Mustallar', 'Los Ancares - Sierra de Ancares', 1935, 42.8227, -6.8419, TRUE, 'https://i.imgur.com/StkyASg.jpeg'),
+    ('tres-bispos', 'Pico Tres Bispos', 'Los Ancares - Sierra de Ancares', 1795, 42.8013, -6.8690, TRUE, 'https://i.imgur.com/O6C0L2x.jpeg'),
+    ('cabeza-de-manzaneda', 'Cabeza de Manzaneda', 'Tierra de Trives - Sierra de Queija', 1781, 42.2592, -7.2983, TRUE, 'https://i.imgur.com/Db3cKYL.jpeg'),
+    ('seixo', 'Monte Seixo', 'Tierra de Trives - Sierra del Fial de las Corzas', 1705, 42.1943, -7.3577, FALSE, 'https://i.imgur.com/sRLN36r.jpeg'),
+    ('formigueiros', 'Pico Formigueiros', 'Sierra del Caurel', 1639, 42.6056, -7.1000, TRUE, 'https://i.imgur.com/5ZzWYZk.jpeg'),
+    ('piapaxaro', 'Pia Paxaro', 'Sierra del Caurel', 1619, 42.5792, -7.1473, TRUE, 'https://i.imgur.com/OtkgSmE.jpeg'),
+    ('faro', 'Faro', 'Sierra del Caurel', 1615, 42.6312, -7.0469, FALSE, 'https://i.imgur.com/yuzgSF5.jpeg'),
+    ('el-turrieiro', 'El Turrieiro', 'Valdeorras - Sierra de la Enciña de la Lastra', 1612, 42.5054, -7.0009, FALSE, 'https://i.imgur.com/qRUsKvv.jpeg'),
+    ('a-nevosa', 'Pico Nevosa', 'La Baja Limia - Sierra de Gerez', 1539, 41.8275, -8.0409, FALSE, 'https://i.imgur.com/LilqQKV.jpeg'),
+    ('alto-do-couto', 'Alto do Couto', 'Sierra del Caurel', 1308, 42.6143, -7.0967, TRUE, 'https://i.imgur.com/EgW6yhY.jpeg'),
+    ('penagache', 'Alto do Penagache', 'Tierra de Celanova - Sierra de Laboreiro', 1225, 42.0904, -8.0945, TRUE, 'https://i.imgur.com/Y8o7D3j.jpeg'),
+    ('monte-faro', 'Monte Faro', 'Chantada / El Deza - Sierra del Faro', 1187, 42.6214, -7.8976, TRUE, 'https://i.imgur.com/iGssNUc.png'),
+    ('pico-de-los-cuatro-caballeros', 'Pico de los Cuatro Caballeros', 'Sierra del Caurel', 1131, 42.6058, -7.2803, FALSE, 'https://i.imgur.com/Nwz3UDJ.jpeg'),
+    ('monte-coco', 'Alto do Coco', 'El Deza / Tabeirós - Tierra de Montes - Sierra del Candán', 969, 42.5629, -8.2499, FALSE, 'https://i.imgur.com/TFBZWJW.jpeg'),
+    ('monte-farelo', 'Monte Farelo', 'El Deza / Ulloa - Sierra del Farelo', 951, 42.7538, -7.9513, TRUE, 'https://i.imgur.com/WHAJPL1.jpeg'),
+    ('pena-grande', 'Monte Peña Grande', 'Meira', 935, 43.2217, -7.2506, FALSE, 'https://i.imgur.com/NI8Md8W.jpeg'),
+    ('monseivane', 'Monte Monseivane', 'Tierra Llana - Sierra de la Carba', 929, 43.3893, -7.5736, FALSE, 'https://i.imgur.com/kksafKn.jpeg'),
+    ('el-candan', 'El Candán', 'Sierra del Candán', 845, 42.5962, -8.2642, FALSE, 'https://i.imgur.com/nKhY6ws.jpeg'),
+    ('monte-de-la-cova-de-la-serpe', 'Monte da Cova da Serpe', 'Friol - Serra Cova da Serpe', 836, 43.0878, -7.9120, FALSE, 'https://i.imgur.com/pJm46nL.jpeg'),
 
 
 
