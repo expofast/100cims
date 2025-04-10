@@ -781,7 +781,7 @@ VALUES
     ('pena-grande', 'Monte Peña Grande', 'Meira', 935, 43.2217, -7.2506, FALSE, 'https://i.imgur.com/NI8Md8W.jpeg'),
     ('monseivane', 'Monte Monseivane', 'Tierra Llana - Sierra de la Carba', 929, 43.3893, -7.5736, FALSE, 'https://i.imgur.com/kksafKn.jpeg'),
     ('el-candan', 'El Candán', 'Sierra del Candán', 845, 42.5962, -8.2642, FALSE, 'https://i.imgur.com/nKhY6ws.jpeg'),
-    ('monte-de-la-cova-de-la-serpe', 'Monte da Cova da Serpe', 'Friol - Serra Cova da Serpe', 836, 43.0878, -7.9120, FALSE, 'https://i.imgur.com/pJm46nL.jpeg'),
+    ('monte-de-la-cova-de-la-serpe', 'Monte da Cova da Serpe', 'Friol - Serra Cova da Serpe', 836, 43.0878, -7.9120, FALSE, 'https://i.imgur.com/pJm46nL.jpeg');
 
 
 
