@@ -817,3 +817,76 @@ WHERE slug IN (
                'el-candan',
                'monte-de-la-cova-de-la-serpe'
 );
+
+-- Montes asturias
+-- Insert challenge
+INSERT INTO challenge (id, name, slug, country)
+VALUES ('01962a7e-9f40-71b4-8b81-891c2977d4d3', 'Cumbres Astures', 'cumbres-astures', 'ESP');
+
+-- Insert mountains
+INSERT INTO mountain (slug, name, location, height, latitude, longitude, essential, image_url)
+VALUES
+    [
+    ("torrecerredo", "Torrecerredo", "Picos de Europa (Macizo de los Urrieles)", 2650, 43.1980, -4.8511, TRUE, 'https://i.imgur.com/vf7AAqL.jpeg'),
+    ("torre-bermeja", "Torre Bermeja", "Picos de Europa (Macizo de los Urrieles)", 2606, 43.1729, -4.9511, TRUE, 'https://i.imgur.com/aJxuAgM.jpeg'),
+    ("tesorero", "Pico Tesorero", "Picos de Europa (Macizo de los Urrieles)", 2570, 43.1807, -4.8408, TRUE, 'https://i.imgur.com/EDREth3.jpeg'),
+    ("naranjo-de-bulnes", "Naranjo de Bulnes", "Picos de Europa (Macizo de los Urrieles)", 2519, 43.2002, -4.8166, TRUE, 'https://i.imgur.com/TbcmKYg.jpeg'),
+    ("pena-santa-enol", "Peña Santa de Enol", "Picos de Europa (Macizo del Cornión)", 2486, 43.2128, -4.9745, TRUE, 'https://i.imgur.com/R8GHOAS.jpeg'),
+    ("morra-lechugales", "Morra de Lechugales", "Picos de Europa (Macizo de Ándara)", 2444, 43.1902, -4.7341, FALSE, 'https://i.imgur.com/lyp3Zcn.jpeg'),
+    ("pena-ubina", "Peña Ubiña", "Macizo de Ubiña", 2417, 43.0186, -5.9566, TRUE, 'https://i.imgur.com/LOCbFdJ.jpeg'),
+    ("el-fontan", "Pico El Fontán (sur)", "Macizo de Ubiña", 2417, 43.0337, -5.9603, TRUE, 'https://i.imgur.com/a428ROx.jpeg'),
+    ("la-verdilluenga", "Pico La Verdilluenga", "Macizo de Ubiña", 2130, 43.2251, -4.9421, FALSE, 'https://i.imgur.com/PHpCGHc.jpeg'),
+    ("pena-orniz", "Peña Orniz", "Sierra de Degaña", 2191, 43.0247, -6.1202, TRUE, 'https://i.imgur.com/5Q8azfH.jpeg'),
+    ("cornon", "Pico Cornón", "Parque Natural de Somiedo", 2188, 43.0288, -6.3060, TRUE, 'https://i.imgur.com/L1MWOt6.jpeg'),
+    ("farinentu", "Pico Fariñentu", "Macizo de Ubiña", 2178, 43.0422, -5.9360, TRUE, 'https://i.imgur.com/t4wYpqx.jpeg'),
+    ("pena-rueda", "Peña Rueda", "Macizo de Ubiña", 2152, 43.0704, -5.9408, FALSE, 'https://i.imgur.com/sFhQVGL.jpeg'),
+    ("munon", "Pico Muñón", "Sierra de Degaña", 2130, 43.0477, -6.1939, FALSE, 'https://i.imgur.com/NCE8fFM.jpeg'),
+    ("cueto-cabras", "Cueto de Las Cabras", "Macizo de Ubiña", 2118, 43.0224, -5.9534, FALSE, 'https://i.imgur.com/Fh8mfir.jpeg'),
+    ("torres", "Pico Torres", "Picos de Europa (Macizo de los Urrieles)", 2104, 43.0784, -5.4080, FALSE, 'https://i.imgur.com/XQg97pY.jpeg'),
+    ("pena-pilenes", "Peña Pileñes", "Parque Natural de Ponga", 2012, 43.1169, -5.1454, TRUE, 'https://i.imgur.com/C8qhs3O.jpeg'),
+    ("pena-viento", "Peña del Viento", "Parque Natural de Redes", 1993, 43.0920, -5.3410, FALSE, 'https://i.imgur.com/0uwr2fG.jpeg'),
+    ("tiatordos", "Tiatordos", "Parque Natural de Ponga", 1951, 43.1751, -5.2219, TRUE, 'https://i.imgur.com/tOpP7R1.jpeg'),
+    ("la-tesa", "La Tesa", "Parque Natural de Redes", 1898, 43.0037, -5.8576, FALSE, 'https://i.imgur.com/xuCAuDi.jpeg'),
+    ("el-retrinon", "Pico El Retriñón", "Parque Natural de Redes", 1862, 43.1342, -5.4638, TRUE, 'https://i.imgur.com/rX7Dv6X.jpeg'),
+    ("picu-michu", "Picu Michu", "Parque Natural de Somiedo", 1766, 43.1147, -6.1964, FALSE, 'https://i.imgur.com/w2uIKkp.jpeg'),
+    ("pena-main", "Peña Maín", "Picos de Europa (Macizo Central)", 1566, 43.2440, -4.7885, TRUE, 'https://i.imgur.com/OXlc6vx.jpeg'),
+    ("la-cabra", "Pico La Cabra", "Sierra de la cabra", 1428, 43.2054, -6.3316, FALSE, 'https://i.imgur.com/lD71POv.jpeg'),
+    ("la-mostayal", "Pico La Mostayal", "Sierra de los Bígaros", 1305, 43.2633, -5.9443, FALSE, 'https://i.imgur.com/k5403lp.jpeg'),
+    ("pienzu", "Pico Pienzu", "Sierra del Sueve", 1161, 43.4317, -5.2424, TRUE, 'https://i.imgur.com/n0H6W54.jpeg');
+]
+
+
+-- Associate mountains with the challenge
+INSERT INTO challenge_has_mountain (challenge_id, mountain_id)
+SELECT
+    (SELECT id FROM challenge WHERE slug = 'montes-asturias') AS challenge_id,
+    id AS mountain_id
+FROM mountain
+WHERE slug IN (
+     'torrecerredo',
+     'torre-bermeja',
+     'tesorero',
+     'naranjo-de-bulnes',
+     'pena-santa-enol',
+     'morra-lechugales',
+     'pena-ubina',
+     'el-fontan',
+     'la-verdilluenga',
+     'pena-orniz',
+     'cornon',
+     'farinentu',
+     'pena-rueda',
+     'munon',
+     'cueto-cabras',
+     'torres',
+     'pena-pilenes',
+     'pena-viento',
+     'tiatordos',
+     'la-tesa',
+     'el-retrinon',
+     'picu-michu',
+     'pena-main',
+     'la-cabra',
+     'la-mostayal',
+     'pienzu'
+);
