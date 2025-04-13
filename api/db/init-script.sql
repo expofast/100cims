@@ -858,7 +858,7 @@ VALUES
 -- Associate mountains with the challenge
 INSERT INTO challenge_has_mountain (challenge_id, mountain_id)
 SELECT
-    (SELECT id FROM challenge WHERE slug = 'montes-asturias') AS challenge_id,
+    (SELECT id FROM challenge WHERE slug = 'cumbres-astures') AS challenge_id,
     id AS mountain_id
 FROM mountain
 WHERE slug IN (
