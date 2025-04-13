@@ -826,7 +826,6 @@ VALUES ('01962a7e-9f40-71b4-8b81-891c2977d4d3', 'Cumbres Astures', 'cumbres-astu
 -- Insert mountains
 INSERT INTO mountain (slug, name, location, height, latitude, longitude, essential, image_url)
 VALUES
-    [
     ("torrecerredo", "Torrecerredo", "Picos de Europa (Macizo de los Urrieles)", 2650, 43.1980, -4.8511, TRUE, 'https://i.imgur.com/vf7AAqL.jpeg'),
     ("torre-bermeja", "Torre Bermeja", "Picos de Europa (Macizo de los Urrieles)", 2606, 43.1729, -4.9511, TRUE, 'https://i.imgur.com/aJxuAgM.jpeg'),
     ("tesorero", "Pico Tesorero", "Picos de Europa (Macizo de los Urrieles)", 2570, 43.1807, -4.8408, TRUE, 'https://i.imgur.com/EDREth3.jpeg'),
@@ -853,7 +852,7 @@ VALUES
     ("la-cabra", "Pico La Cabra", "Sierra de la cabra", 1428, 43.2054, -6.3316, FALSE, 'https://i.imgur.com/lD71POv.jpeg'),
     ("la-mostayal", "Pico La Mostayal", "Sierra de los Bígaros", 1305, 43.2633, -5.9443, FALSE, 'https://i.imgur.com/k5403lp.jpeg'),
     ("pienzu", "Pico Pienzu", "Sierra del Sueve", 1161, 43.4317, -5.2424, TRUE, 'https://i.imgur.com/n0H6W54.jpeg');
-]
+
 
 
 -- Associate mountains with the challenge
