@@ -753,7 +753,7 @@ WHERE slug IN (
 -- Montes gallegos
 -- Insert challenge
 INSERT INTO challenge (id, name, slug, country)
-VALUES ('01961783-e221-7dbb-8c14-99a4377d3c9e', 'Camiño das Cimas', 'montes-gallegos', 'ESP');
+VALUES ('01961783-e221-7dbb-8c14-99a4377d3c9e', 'Camiño das Cimas', 'camiño-das-cimas', 'ESP');
 
 -- Insert mountains
 INSERT INTO mountain (slug, name, location, height, latitude, longitude, essential, image_url)
@@ -788,7 +788,7 @@ VALUES
 -- Associate mountains with the challenge
 INSERT INTO challenge_has_mountain (challenge_id, mountain_id)
 SELECT
-    (SELECT id FROM challenge WHERE slug = 'montes-gallegos') AS challenge_id,
+    (SELECT id FROM challenge WHERE slug = 'camiño-das-cimas') AS challenge_id,
     id AS mountain_id
 FROM mountain
 WHERE slug IN (
@@ -818,7 +818,7 @@ WHERE slug IN (
                'monte-de-la-cova-de-la-serpe'
 );
 
--- Montes asturias
+-- Montes Asturias
 -- Insert challenge
 INSERT INTO challenge (id, name, slug, country)
 VALUES ('01962a7e-9f40-71b4-8b81-891c2977d4d3', 'Cumbres Astures', 'cumbres-astures', 'ESP');
@@ -862,30 +862,100 @@ SELECT
     id AS mountain_id
 FROM mountain
 WHERE slug IN (
-     'torrecerredo',
-     'torre-bermeja',
-     'tesorero',
-     'naranjo-de-bulnes',
-     'pena-santa-enol',
-     'morra-lechugales',
-     'pena-ubina',
-     'el-fontan',
-     'la-verdilluenga',
-     'pena-orniz',
-     'cornon',
-     'farinentu',
-     'pena-rueda',
-     'munon',
-     'cueto-cabras',
-     'torres',
-     'pena-pilenes',
-     'pena-viento',
-     'tiatordos',
-     'la-tesa',
-     'el-retrinon',
-     'picu-michu',
-     'pena-main',
-     'la-cabra',
-     'la-mostayal',
-     'pienzu'
+               'torrecerredo',
+               'torre-bermeja',
+               'tesorero',
+               'naranjo-de-bulnes',
+               'pena-santa-enol',
+               'morra-lechugales',
+               'pena-ubina',
+               'el-fontan',
+               'la-verdilluenga',
+               'pena-orniz',
+               'cornon',
+               'farinentu',
+               'pena-rueda',
+               'munon',
+               'cueto-cabras',
+               'torres',
+               'pena-pilenes',
+               'pena-viento',
+               'tiatordos',
+               'la-tesa',
+               'el-retrinon',
+               'picu-michu',
+               'pena-main',
+               'la-cabra',
+               'la-mostayal',
+               'pienzu'
+);
+
+-- Montes Madrid
+-- Insert challenge
+INSERT INTO challenge (id, name, slug, country)
+VALUES ('01963614-2f12-704c-a14f-1e886f4632ac', 'Altos Madrileños', 'altos-madrileños', 'ESP');
+
+-- Insert mountains
+INSERT INTO mountain (slug, name, location, height, latitude, longitude, essential, image_url)
+VALUES
+    ('penalara', 'Peñalara', 'Sierra de Guadarrama', 2428, 40.8496924796778, -3.9546185623825227, TRUE, 'https://i.imgur.com/sS15Lub.jpeg'),
+    ('cabezas-de-hierro', 'Cabezas de Hierro', 'Sierra de Guadarrama', 2383, 40.79945044430646, -3.933040338003197, TRUE, 'https://i.imgur.com/pBElP0q.jpeg'),
+    ('pico-del-lobo', 'Pico del Lobo', 'Sierra de Ayllón', 2274, 41.18319719090654, -3.4663340759600505, TRUE, 'https://i.imgur.com/mtcxt7Y.jpeg'),
+    ('pico-de-navahondilla', 'Pico de Navahondilla', 'Sierra de Guadarrama', 2234, 40.80743000198677, -3.885626031216116, FALSE, 'https://i.imgur.com/8LDA69c.jpeg'),
+    ('la-maliciosa', 'La Maliciosa', 'Sierra de Guadarrama', 2227, 40.767195779730166, -3.9684401205547055, TRUE, 'https://i.imgur.com/JAcNqBY.jpeg'),
+    ('reajo-alto', 'Reajo Alto', 'Sierra de Guadarrama', 2099, 41.015807591019524, -3.765871614869497, FALSE, 'https://i.imgur.com/uR5geOQ.jpeg'),
+    ('portacho-de-los-gavilanes', 'Portacho de los Gavilanes', 'Sierra de Guadarrama', 1990, 40.78979717038406, -3.876022513658539, FALSE, 'https://i.imgur.com/M9mtCaq.jpeg'),
+    ('pena-negra', 'Peña Negra', 'Sierra de la Cabrera', 1854, 40.8853631161759, -3.6804339785505835, FALSE, 'https://i.imgur.com/1rCjYHC.jpeg'),
+    ('pena-de-la-cabra', 'Peña de la Cabra', 'Sierra de Ayllón', 1831, 41.01077386330444, -3.481533990077664, TRUE, 'https://i.imgur.com/6NA38Qb.jpeg'),
+    ('alto-del-porrejon', 'Alto del Porrejón', 'Sierra del Rincón', 1824, 41.050098431636485, -3.458596398454391, FALSE, 'https://i.imgur.com/WjWDfzV.jpeg'),
+    ('cabeza-lijar', 'Cabeza Líjar', 'Sierra de Guadarrama', 1822, 40.68954918326222, -4.1603265292123295, TRUE, 'https://i.imgur.com/Tx59NlH.jpeg'),
+    ('monte-abantos', 'Monte Abantos', 'Sierra de Guadarrama', 1753, 40.616740408133204, -4.149993640980904, TRUE, 'https://i.imgur.com/PaKBCB4.jpeg'),
+    ('la-najarra', 'La Najarra', 'Sierra de la Morcuera', 1720, 40.8667, -3.8333, TRUE, 'https://i.imgur.com/BooHYdC.jpeg'),
+    ('el-yelmo', 'El Yelmo', 'Sierra de Guadarrama', 1717, 40.75857106610015, -3.870661835650868, TRUE, 'https://i.imgur.com/Ym5izM2.jpeg'),
+    ('cerro-del-barranco-de-la-cabeza', 'Cerro del Barranco de la Cabeza', 'Sierra de Guadarrama', 1679, 40.589797259869286, -4.1870270374399645, TRUE, 'https://i.imgur.com/u4KVlFC.jpeg'),
+    ('cerro-san-benito', 'Cerro San Benito', 'Sierra de Guadarrama', 1626, 40.5550217367501, -4.21367066125849, FALSE, 'https://i.imgur.com/qcXMk9K.jpeg'),
+    ('cancho-gordo', 'Cancho Gordo', 'Sierra de la Cabrera', 1563, 40.875402054144736, -3.6398914676889844, TRUE, 'https://i.imgur.com/WcSoURn.jpeg'),
+    ('pico-del-fraile', 'Pico del Fraile', 'Sierra de Guadarrama', 1449, 40.56300104757784, -4.173175790576048, TRUE, 'https://i.imgur.com/uxuYCor.jpeg'),
+    ('cerro-de-san-pedro', 'Cerro de San Pedro', 'Sierra del Hoyo', 1425, 40.72933624117958, -3.710434237760834, TRUE, 'https://i.imgur.com/FttOh2z.jpeg'),
+    ('machota-baja', 'Machota Baja', 'Sierra de Guadarrama', 1410, 40.549502286184136, -4.160515764795573, FALSE, 'https://i.imgur.com/OxpdDYo.jpeg'),
+    ('pico-de-la-miel', 'Pico de la Miel', 'Sierra de la Cabrera', 1392, 40.87907904478704, -3.6086245248298736, TRUE, 'https://i.imgur.com/pnn0xiq.jpeg'),
+    ('cancho-de-la-cabeza', 'Cancho de la Cabeza', 'Sierra de la Morcuera', 1263, 40.89641813437845, -3.480286434583384, TRUE, 'https://i.imgur.com/d7qy1o3.jpeg'),
+    ('pico-de-la-almenara', 'Pico de La Almenara', 'Sierra de Guadarrama', 1259, 40.448938121611256, -4.25579234763744, TRUE, 'https://i.imgur.com/oaMaEvc.jpeg'),
+    ('pico-almojon', 'Pico Almojón', 'Sierra de Guadarrama', 1178, 40.47382780018471, -4.238937923209992, FALSE, 'https://i.imgur.com/4x4MPVU.jpeg'),
+    ('cerro-del-ecce-homo', 'Cerro del Ecce Homo', 'Sierra de Ayllón', 835, 40.48294139831376, -3.3247189329788225, TRUE, 'https://i.imgur.com/J2sUDYm.jpeg');
+
+
+
+-- Associate mountains with the challenge
+INSERT INTO challenge_has_mountain (challenge_id, mountain_id)
+SELECT
+    (SELECT id FROM challenge WHERE slug = 'altos-madrileños') AS challenge_id,
+    id AS mountain_id
+FROM mountain
+WHERE slug IN (
+               'penalara',
+               'cabezas-de-hierro',
+               'pico-del-lobo',
+               'pico-de-navahondilla',
+               'la-maliciosa',
+               'reajo-alto',
+               'portacho-de-los-gavilanes',
+               'pena-negra',
+               'pena-de-la-cabra',
+               'alto-del-porrejon',
+               'cabeza-lijar',
+               'monte-abantos',
+               'la-najarra',
+               'el-yelmo',
+               'cerro-del-barranco-de-la-cabeza',
+               'cerro-san-benito',
+               'cancho-gordo',
+               'pico-del-fraile',
+               'cerro-de-san-pedro',
+               'machota-baja',
+               'pico-de-la-miel',
+               'cancho-de-la-cabeza',
+               'pico-de-la-almenara',
+               'pico-almojon',
+               'cerro-del-ecce-homo'
 );
