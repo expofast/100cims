@@ -910,7 +910,7 @@ VALUES
     ('alto-del-porrejon', 'Alto del Porrejón', 'Sierra del Rincón', 1824, 41.0501, -3.4586, FALSE, 'https://i.imgur.com/WjWDfzV.jpeg'),
     ('cabeza-lijar', 'Cabeza Líjar', 'Sierra de Guadarrama', 1822, 40.6895, -4.1603, TRUE, 'https://i.imgur.com/Tx59NlH.jpeg'),
     ('monte-abantos', 'Monte Abantos', 'Sierra de Guadarrama', 1753, 40.6167, -4.1500, TRUE, 'https://i.imgur.com/PaKBCB4.jpeg'),
-    ('la-najarra', 'La Najarra', 'Sierra de la Morcuera', 1720, 40.8667, -3.8333, TRUE, 'https://i.imgur.com/BooHYdC.jpeg'),
+    ('la-najarra', 'La Najarra', 'Sierra de la Morcuera', 1720, 40.8154, -3.8280, TRUE, 'https://i.imgur.com/BooHYdC.jpeg'),
     ('el-yelmo', 'El Yelmo', 'Sierra de Guadarrama', 1717, 40.7586, -3.8707, TRUE, 'https://i.imgur.com/Ym5izM2.jpeg'),
     ('cerro-del-barranco-de-la-cabeza', 'Cerro del Barranco de la Cabeza', 'Sierra de Guadarrama', 1679, 40.5898, -4.1870, TRUE, 'https://i.imgur.com/u4KVlFC.jpeg'),
     ('cerro-san-benito', 'Cerro San Benito', 'Sierra de Guadarrama', 1626, 40.5550, -4.2137, FALSE, 'https://i.imgur.com/qcXMk9K.jpeg'),
