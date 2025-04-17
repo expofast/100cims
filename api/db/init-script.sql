@@ -991,8 +991,7 @@ VALUES
     ('pico-monduver', 'Pico Mondúver', 'Safor', 841, 39.0094, -0.2668, TRUE, 'https://i.imgur.com/xvFKsxA.jpeg'),
     ('cima-del-picacho', 'Cima del Picacho', 'Serra Crevillente', 812, 38.2639, -0.8954, TRUE, 'https://i.imgur.com/G789okI.jpeg'),
     ('montgo', 'Montgó', 'Marina Alta', 753, 38.8032, 0.1294, TRUE, 'https://i.imgur.com/mACujHz.jpeg'),
-    ('el-garbi', 'El Garbí', 'Serra Calderona', 600, 39.6977, -0.3725, TRUE, 'https://i.imgur.com/sIZY1hS.jpeg')
-
+    ('el-garbi', 'El Garbí', 'Serra Calderona', 600, 39.6977, -0.3725, TRUE, 'https://i.imgur.com/sIZY1hS.jpeg');
 
 
 
