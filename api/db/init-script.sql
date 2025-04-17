@@ -959,3 +959,70 @@ WHERE slug IN (
                'pico-almojon',
                'cerro-del-ecce-homo'
 );
+
+
+-- Montes Valencia
+-- Insert challenge
+INSERT INTO challenge (id, name, slug, country)
+VALUES ('01963952-6e23-73bc-8163-a3f30a847408', 'Cumbres del Levante', 'cumbres-del-levante', 'ESP');
+
+-- Insert mountains
+INSERT INTO mountain (slug, name, location, height, latitude, longitude, essential, image_url)
+VALUES
+    ('pico-calderon', 'Pico Calderón', 'Rincón de Ademuz', 1837, 40.0773, -1.0908, FALSE, 'https://i.imgur.com/SesJCxH.jpeg'),
+    ('penyagolosa', 'Penyagolosa', 'Alcalatén', 1813, 40.2230, -0.3509, TRUE, 'https://i.imgur.com/F5QCTI0.jpeg'),
+    ('pico-gavilan', 'Pico Gavilán', 'Parque Natural Puebla de San Miguel', 1747, 40.0723, -1.1101, FALSE, 'https://i.imgur.com/LZOAVip.jpeg'),
+    ('sierra-de-aitana', 'Sierra de Aitana', 'Marina Baixa', 1558, 38.6492, -0.2667, TRUE, 'https://i.imgur.com/uZ5wnG9.jpeg'),
+    ('puig-campana', 'Puig Campana', 'Marina Baixa', 1406, 38.5964, -0.1937, TRUE, 'https://i.imgur.com/ehte69E.jpeg'),
+    ('alto-de-santa-barbara', 'Alto de Santa Bárbara', 'Higueras', 1405, 40.0288, -0.6285, FALSE, 'https://i.imgur.com/u4wA8FH.jpeg'),
+    ('el-cabezo', 'El Cabezo', 'Los Serranos', 1298, 39.8667, -0.9859, FALSE, 'https://i.imgur.com/5p7hOyL.jpeg'),
+    ('cim-del-ponig', 'Cim del Ponoig', 'Marina Baixa', 1181, 38.6130, -0.1756, FALSE, 'https://i.imgur.com/Lfbisxu.jpeg'),
+    ('caroche', 'Caroche', 'Valle de Cofrentes', 1126, 39.0898, -0.9145, TRUE, 'https://i.imgur.com/ckVoUX8.jpeg'),
+    ('benicadell', 'Benicadell', 'Vall d Albaida', 1104, 38.8328, -0.4062, TRUE, 'https://i.imgur.com/ofwEZ5h.jpeg'),
+    ('pico-espadan', 'Pico Espadán', 'Sierra de Espadán', 1099, 39.9013, -0.3761, TRUE, 'https://i.imgur.com/Qq1ZkDZ.jpeg'),
+    ('pico-nono', 'Pico Ñoño', 'Sierra Martés', 1075, 39.3301, -0.9623, TRUE, 'https://i.imgur.com/kn8lxUv.jpeg'),
+    ('sierra-de-bernia', 'Sierra de Bernia', 'Marina Baixa', 1054, 38.6635, -0.0549, TRUE, 'https://i.imgur.com/vLDaDVk.jpeg'),
+    ('pico-elvira', 'Pico Elvira', 'Serra Espina', 1028, 40.0041, -0.5223, FALSE, 'https://i.imgur.com/xVSnm82.jpeg'),
+    ('pico-batalla', 'Pico Batalla', 'Serra Espina', 974, 39.8865, -0.3370, FALSE, 'https://i.imgur.com/sPMzgCH.jpeg'),
+    ('bellota', 'Bellota', 'Sierra de Espadán', 959, 39.8702, -0.3435, TRUE, 'https://i.imgur.com/ZytbJHU.jpeg'),
+    ('pico-del-ave', 'Pico del Ave', 'Sierra del Ave', 952, 39.3051, -0.7784, FALSE, 'https://i.imgur.com/fyjlaDY.jpeg'),
+    ('puntal-de-aljub', 'Puntal de l''Aljub', 'Sierra de Espadán', 948, 39.8723, -0.3247, FALSE, 'https://i.imgur.com/L4Sz5pu.jpeg'),
+    ('cima-el-carrascal', 'Cima El Carrascal', 'Serra Espadán', 854, 39.8629, -0.3639, FALSE, 'https://i.imgur.com/Ly2Jntm.jpeg'),
+    ('pico-monduver', 'Pico Mondúver', 'Safor', 841, 39.0094, -0.2668, TRUE, 'https://i.imgur.com/xvFKsxA.jpeg'),
+    ('cima-del-picacho', 'Cima del Picacho', 'Serra Crevillente', 812, 38.2639, -0.8954, TRUE, 'https://i.imgur.com/G789okI.jpeg'),
+    ('montgo', 'Montgó', 'Marina Alta', 753, 38.8032, 0.1294, TRUE, 'https://i.imgur.com/mACujHz.jpeg'),
+    ('el-garbi', 'El Garbí', 'Serra Calderona', 600, 39.6977, -0.3725, TRUE, 'https://i.imgur.com/sIZY1hS.jpeg');
+
+
+
+-- Associate mountains with the challenge
+INSERT INTO challenge_has_mountain (challenge_id, mountain_id)
+SELECT
+    (SELECT id FROM challenge WHERE slug = 'cumbres-del-levante') AS challenge_id,
+    id AS mountain_id
+FROM mountain
+WHERE slug IN (
+               'pico-calderon',
+               'penyagolosa',
+               'pico-gavilan',
+               'sierra-de-aitana',
+               'puig-campana',
+               'alto-de-santa-barbara',
+               'el-cabezo',
+               'cim-del-ponig',
+               'caroche',
+               'benicadell',
+               'pico-espadan',
+               'pico-nono',
+               'sierra-de-bernia',
+               'pico-elvira',
+               'pico-batalla',
+               'bellota',
+               'pico-del-ave',
+               'puntal-de-aljub',
+               'cima-el-carrascal',
+               'pico-monduver',
+               'cima-del-picacho',
+               'montgo',
+               'el-garbi'
+);
