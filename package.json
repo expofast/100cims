@@ -2,7 +2,8 @@
   "name": "100cims",
   "main": "expo-router/entry",
   "version": "2.0.3",
-  "private": true,
+  "private": false,
+  "license": "MIT",
   "scripts": {
     "start": "npx expo start --clear",
     "start:prod": "npx expo start --no-dev --minify",
