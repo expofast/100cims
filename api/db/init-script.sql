@@ -893,7 +893,7 @@ WHERE slug IN (
 -- Montes Madrid
 -- Insert challenge
 INSERT INTO challenge (id, name, slug, country)
-VALUES ('01963614-2f12-704c-a14f-1e886f4632ac', 'Altos Madrileños', 'altos-madrileños', 'ESP');
+VALUES ('01963614-2f12-704c-a14f-1e886f4632ac', 'Altos Madrileños', 'altos-madrilenos', 'ESP');
 
 -- Insert mountains
 INSERT INTO mountain (slug, name, location, height, latitude, longitude, essential, image_url)
@@ -905,7 +905,7 @@ VALUES
     ('la-maliciosa', 'La Maliciosa', 'Sierra de Guadarrama', 2227, 40.7672, -3.9684, TRUE, 'https://i.imgur.com/JAcNqBY.jpeg'),
     ('reajo-alto', 'Reajo Alto', 'Sierra de Guadarrama', 2099, 41.0158, -3.7659, FALSE, 'https://i.imgur.com/uR5geOQ.jpeg'),
     ('portacho-de-los-gavilanes', 'Portacho de los Gavilanes', 'Sierra de Guadarrama', 1990, 40.7898, -3.8760, FALSE, 'https://i.imgur.com/M9mtCaq.jpeg'),
-    ('pena-negra', 'Peña Negra', 'Sierra de la Cabrera', 1854, 40.8854, -3.6804, FALSE, 'https://i.imgur.com/1rCjYHC.jpeg'),
+    ('pena-negra-cabrera', 'Peña Negra', 'Sierra de la Cabrera', 1854, 40.8854, -3.6804, FALSE, 'https://i.imgur.com/1rCjYHC.jpeg'),
     ('pena-de-la-cabra', 'Peña de la Cabra', 'Sierra de Ayllón', 1831, 41.0108, -3.4815, TRUE, 'https://i.imgur.com/6NA38Qb.jpeg'),
     ('alto-del-porrejon', 'Alto del Porrejón', 'Sierra del Rincón', 1824, 41.0501, -3.4586, FALSE, 'https://i.imgur.com/SJo00TE.jpeg'),
     ('cabeza-lijar', 'Cabeza Líjar', 'Sierra de Guadarrama', 1822, 40.6895, -4.1603, TRUE, 'https://i.imgur.com/Tx59NlH.jpeg'),
@@ -929,7 +929,7 @@ VALUES
 -- Associate mountains with the challenge
 INSERT INTO challenge_has_mountain (challenge_id, mountain_id)
 SELECT
-    (SELECT id FROM challenge WHERE slug = 'altos-madrileños') AS challenge_id,
+    (SELECT id FROM challenge WHERE slug = 'altos-madrilenos') AS challenge_id,
     id AS mountain_id
 FROM mountain
 WHERE slug IN (
@@ -940,7 +940,7 @@ WHERE slug IN (
                'la-maliciosa',
                'reajo-alto',
                'portacho-de-los-gavilanes',
-               'pena-negra',
+               'pena-negra-cabrera',
                'pena-de-la-cabra',
                'alto-del-porrejon',
                'cabeza-lijar',
