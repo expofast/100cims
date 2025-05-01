@@ -630,7 +630,7 @@ VALUES
     ('mulhacen', 'Mulhacén', 'Sierra Nevada, Granada', 3479, 37.0626, -3.3084, TRUE, 'https://i.imgur.com/NTzKsYo.png'),
     ('veleta', 'Veleta', 'Sierra Nevada, Granada', 3396, 37.0662, -3.3538, TRUE, 'https://i.imgur.com/OKvTxYx.png'),
     ('vignemale', 'Vignemale', 'Pirineos, Huesca', 3298, 42.7722, -0.1412, TRUE, 'https://i.imgur.com/4plnwnP.png'),
-    ('torrecerredo', 'Torrecerredo', 'Picos de Europa, Asturias', 2648, 43.1897, -4.8526, TRUE, 'https://i.imgur.com/9WR7OUp.png');
+    ('torrecerredo', 'Torrecerredo', 'Picos de Europa (Macizo de los Urrieles)', 2650, 43.1980, -4.8511, TRUE, 'https://i.imgur.com/vf7AAqL.jpeg'),
 
 
 INSERT INTO challenge_has_mountain (challenge_id, mountain_id)
@@ -826,7 +826,6 @@ VALUES ('01962a7e-9f40-71b4-8b81-891c2977d4d3', 'Cumbres Astures', 'cumbres-astu
 -- Insert mountains
 INSERT INTO mountain (slug, name, location, height, latitude, longitude, essential, image_url)
 VALUES
-    ('torrecerredo', 'Torrecerredo', 'Picos de Europa (Macizo de los Urrieles)', 2650, 43.1980, -4.8511, TRUE, 'https://i.imgur.com/vf7AAqL.jpeg'),
     ('torre-bermeja', 'Torre Bermeja', 'Picos de Europa (Macizo de los Urrieles)', 2606, 43.1729, -4.9511, TRUE, 'https://i.imgur.com/aJxuAgM.jpeg'),
     ('tesorero', 'Pico Tesorero', 'Picos de Europa (Macizo de los Urrieles)', 2570, 43.1807, -4.8408, TRUE, 'https://i.imgur.com/EDREth3.jpeg'),
     ('naranjo-de-bulnes', 'Naranjo de Bulnes', 'Picos de Europa (Macizo de los Urrieles)', 2519, 43.2002, -4.8166, TRUE, 'https://i.imgur.com/TbcmKYg.jpeg'),
